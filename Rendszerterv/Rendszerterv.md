@@ -40,42 +40,59 @@ Adatbázis alapú Univerzum építő alkalmazás, ahol a felhasználó saját un
 
 ## 3. Üzleti Folyamatok Modellje
 ### 3.1 Üzleti szereplők
+
 A felhasználó, aki képes a saját univerzumát kialakítani.
+
 ### 3.2 Üzleti folyamatok
 
 Bejelentkezés: a ’Belépés’ menüpontra kattintva megjelenik a ’Felhasználó név’ és ’Jelszó’ beviteli űrlap. A mezők kitöltése után a ’Belépés’ gombra kattint a felhasználó. Ha az azonosítás sikeres, akkor a felhasználó belépett és megjelenik számára a saját univerzuma. Ha nem sikerül az azonosítás, hibaüzenet jelenik meg.
+
 ## 4. Követelmények
-Az alkalmazás funkcióinak eléréséhez belépésre van szükség. Csak ezután lehet hozzáférni az univerzumhoz, égitestet felvenni, szerkeszteni, törölni, összehasonlítani.
+
+Egy olyan program amelyben a felhasználó létre tudja hozni saját univerzumát.
+Nem kell bejelentkezni a program használatához, de csak bejelentkezéssel lehet égitestet felvenni, szerkeszteni, törölni. 
+A felhasználó képet tölthet fel az égitesthez.
+Több felhasználó tudja használni az adatbázist egy időben, módosításokról értesítést kap a többi felhasználó.
 
 ## 5. Funkcionális Terv
 
 ## 6. Architekturális Terv
+
 Az adatok tárolása a MySql adatbázis szerveren történik. A felhasználói felület Java ablakos alkalmazás.
+
 ## 7. Adatbázis Terv
-Galaxy egyedet jellemzi:
--   név
--   átmérő
--   tömeg
+Galaxis egyedet jellemzi:
+- név
+- átmérő
+- tömeg
 - csillagok száma
 
-Planet egyedet jellemzi:
--   név
--   átmérő
--   tömeg
+Bolygó egyedet jellemzi:
+  név
+- átmérő
+- tömeg
 - távolság
 - keringési idő
 
-Star egyedet jellemzi:
--   név
--   átmérő
--   tömeg
+Csillag egyedet jellemzi:
+- név
+- átmérő
+- tömeg
 - fényesség
 
-Felhasználó
+Fekete lyuk egyedet jellemzi:
+- név
+- átmérő
+- tömeg
+- galaxis
+- távolság
+
+Felhasználó egyedet jellemzi:
 - név
 - csillagok
 - bolygók
 - galaxisok
+- fekete lyukak
 ## 8. Implementációs terv
 
 
