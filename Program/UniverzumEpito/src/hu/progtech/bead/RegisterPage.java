@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RegisterPage implements ActionListener {
@@ -63,10 +64,10 @@ public class RegisterPage implements ActionListener {
             String password = String.valueOf(userPasswordField.getPassword());
             String confirm = String.valueOf(passwordAgainField.getPassword());
 
-            HashMap<String,String> loginfo = IDandPasswords.getLogininfo();
+            ArrayList<User> loginfo = IDandPasswords.getLogininfo();
 
-            for (HashMap.Entry<String,String> entry : loginfo.entrySet())
-                if (entry.getKey().equals(username)){
+            for (User entry : loginfo)
+                if (entry.username.equals(username)){
                     messageLabel.setForeground(Color.RED);
                     messageLabel.setText("Username already exists!");
                     return;

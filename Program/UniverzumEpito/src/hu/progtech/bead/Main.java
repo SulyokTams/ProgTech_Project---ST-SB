@@ -9,7 +9,7 @@ public class Main {
 
       //  LoginPage loginPage = new LoginPage("");
        // RegisterPage registerPage = new RegisterPage();
-        WelcomePage welcomePage = new WelcomePage("");
+        WelcomePage welcomePage = new WelcomePage("Agy","2");
 
     }
 }

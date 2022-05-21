@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 public class LoginPage implements ActionListener {
@@ -62,15 +63,19 @@ public class LoginPage implements ActionListener {
             RegisterPage registerPage = new RegisterPage();
         }
         if (e.getSource()==loginButton){
-            String userID = usernameField.getText();
+            String username = usernameField.getText();
             String password = String.valueOf(userPasswordField.getPassword());
 
-            if (IDandPasswords.getLogininfo().containsKey(userID)){
-                if (IDandPasswords.getLogininfo().get(userID).equals(password)){
+            if (IDandPasswords.containsUser(username)!=null){
+                if (IDandPasswords.containsUser(username).password.equals(password)){
                     messageLabel.setForeground(Color.GREEN);
                     messageLabel.setText("Login successful");
                     frame.dispose();
-                    WelcomePage welcomePage = new WelcomePage(userID);
+                    try {
+                        WelcomePage welcomePage = new WelcomePage(username,IDandPasswords.containsUser(username).userID);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
 
                 }
                 else{
