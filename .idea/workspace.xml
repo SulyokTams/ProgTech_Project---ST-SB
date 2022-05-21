@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="" />
+    <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.29.jar" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,15 +35,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.29.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Program/UniverzumEpito/lib/mysql-connector-java-8.0.29.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\src" />
       <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito" />
+      <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\.idea" />
+      <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -63,11 +76,22 @@
       <option name="presentableId" value="Default" />
       <updated>1653133330639</updated>
       <workItem from="1653133332985" duration="381000" />
-      <workItem from="1653133742711" duration="378000" />
+      <workItem from="1653133742711" duration="656000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
