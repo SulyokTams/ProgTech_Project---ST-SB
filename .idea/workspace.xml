@@ -2,22 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.29.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,14 +39,20 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="158" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Program/UniverzumEpito/lib/mysql-connector-java-8.0.29.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="hu.progtech.bead" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\src\hu\progtech\bead" />
       <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito" />
       <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\.idea" />
       <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\src" />
@@ -76,7 +87,12 @@
       <option name="presentableId" value="Default" />
       <updated>1653133330639</updated>
       <workItem from="1653133332985" duration="381000" />
-      <workItem from="1653133742711" duration="656000" />
+      <workItem from="1653133742711" duration="2228000" />
+      <workItem from="1653136070213" duration="69000" />
+      <workItem from="1653136163233" duration="29000" />
+      <workItem from="1653136199572" duration="73000" />
+      <workItem from="1653136404585" duration="61000" />
+      <workItem from="1653136492131" duration="4206000" />
     </task>
     <servers />
   </component>

@@ -9,6 +9,7 @@ public class Main {
         MySQLConnection mySQLConnection = new MySQLConnection();
 	    IDandPasswords idandPasswords = new IDandPasswords();
 
-        LoginPage loginPage = new LoginPage(idandPasswords.getLogininfo());
+        LoginPage loginPage = new LoginPage("");
+        RegisterPage registerPage = new RegisterPage();
     }
 }
