@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Galaxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Planet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Star.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Universe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/MySQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/MySQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +94,7 @@
       <workItem from="1653136163233" duration="29000" />
       <workItem from="1653136199572" duration="73000" />
       <workItem from="1653136404585" duration="61000" />
-      <workItem from="1653136492131" duration="14880000" />
+      <workItem from="1653136492131" duration="22081000" />
     </task>
     <servers />
   </component>

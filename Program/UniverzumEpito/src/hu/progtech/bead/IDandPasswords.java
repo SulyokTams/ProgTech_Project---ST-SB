@@ -30,6 +30,7 @@ public class IDandPasswords {
         System.out.println(logininfo.toString());
 
         statement.close();
+        mySQLConnection.connection.close();
         return logininfo;
     }
     protected static User containsUser(String username){
@@ -46,11 +47,13 @@ public class IDandPasswords {
 
     public static void insertUser(String username, String password) throws SQLException {
         String sql2 = "INSERT INTO universe.users (name, password) VALUES (? , ?)";
-        PreparedStatement statement2 = mySQLConnection.prepareStatement(sql2);
-        statement2.setString(1,username);
-        statement2.setString(2,password);
+        PreparedStatement statement = mySQLConnection.prepareStatement(sql2);
+        statement.setString(1,username);
+        statement.setString(2,password);
         logininfo = selectLogininfo();
-        System.out.println(statement2.executeUpdate());
+        System.out.println(statement.executeUpdate());
+        statement.close();
+        mySQLConnection.connection.close();
     }
 
 }

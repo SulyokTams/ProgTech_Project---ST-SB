@@ -3,7 +3,7 @@ package hu.progtech.bead;
 import java.sql.*;
 
 public class MySQLConnection {
-    private Connection connection;
+     Connection connection;
     public MySQLConnection() throws SQLException {
         String jdbcURL = "jdbc:mysql://localhost:3306/universe";
         String username = "root2";

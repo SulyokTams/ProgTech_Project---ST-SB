@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class WelcomePage implements ActionListener {
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("Hello!");
-    JButton addButton = new JButton("Add Universe");
-    JButton editButton = new JButton("Edit Universe");
-    JButton deleteButton = new JButton("Delete Universe");
+    JButton addButton = new JButton("Add");
+    JButton editButton = new JButton("Edit");
+    JButton deleteButton = new JButton("Delete");
 
 
     JLabel listLabel = new JLabel("Universe List");
@@ -29,22 +29,27 @@ public class WelcomePage implements ActionListener {
         welcomeLabel.setFont(new Font(null,Font.PLAIN,25));
         welcomeLabel.setText("Welcome " + "username!");
 
+
         MySQLConnection mySQLConnection = new MySQLConnection();
         String sql = "SELECT * FROM universe.universes WHERE user_id="+userID;
         Statement statement = mySQLConnection.createStatement();
         ResultSet result = statement.executeQuery(sql);
         int count = 0;
         ArrayList<String> data = new ArrayList<>();
+        ArrayList<Universe> universes = new ArrayList<>();
         while(result.next()){
             String name = result.getString("name");
             String user_id = result.getString("user_id");
-            data.add("Universe " + count + " " + name + " " + user_id);
+            String universe_id = result.getString("id");
+            data.add(name);
+            universes.add(new Universe(universe_id,name,user_id));
             System.out.println(data.get(count));
             count++;
 
         }
-
         statement.close();
+        mySQLConnection.connection.close();
+
         JList universeList = new JList(data.toArray());
         JScrollPane jcp = new JScrollPane(universeList);
         jcp.setBounds(800,70,370,680);
@@ -59,12 +64,11 @@ public class WelcomePage implements ActionListener {
 
                     // Double-click detected
                     int index = list.locationToIndex(evt.getPoint());
-
-                    System.out.println("index: "+index);
-                } else if (evt.getClickCount() == 3) {
-
-                    // Triple-click detected
-                    int index = list.locationToIndex(evt.getPoint());
+                    try {
+                        UniversePage universePage = new UniversePage(universes.get(index).id);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     System.out.println("index: "+index);
                 }
             }
