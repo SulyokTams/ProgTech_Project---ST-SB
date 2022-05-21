@@ -6,10 +6,10 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        MySQLConnection mySQLConnection = new MySQLConnection();
-	    IDandPasswords idandPasswords = new IDandPasswords();
 
-        LoginPage loginPage = new LoginPage("");
-        RegisterPage registerPage = new RegisterPage();
+      //  LoginPage loginPage = new LoginPage("");
+       // RegisterPage registerPage = new RegisterPage();
+        WelcomePage welcomePage = new WelcomePage("");
+
     }
 }

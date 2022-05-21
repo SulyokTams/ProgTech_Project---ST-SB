@@ -13,18 +13,18 @@ public class LoginPage implements ActionListener {
     JButton loginButton = new JButton("Login");
     JButton registerButton = new JButton("Register");
 
-    JTextField userIDField  = new JTextField();
+    JTextField usernameField  = new JTextField();
     JPasswordField userPasswordField = new JPasswordField();
 
-    JLabel userIDLabel = new JLabel("Username:");
+    JLabel usernameLabel = new JLabel("Username:");
     JLabel userPasswordLabel = new JLabel("Password:");
     JLabel messageLabel = new JLabel();
 
     LoginPage(String labelMessage){
-        userIDLabel.setBounds(50,100,75,25);
+        usernameLabel.setBounds(50,100,75,25);
         userPasswordLabel.setBounds(50,150,75,25);
 
-        userIDField.setBounds(125,100,200,25);
+        usernameField.setBounds(125,100,200,25);
         userPasswordField.setBounds(125,150,200,25);
 
         loginButton.setBounds(125,200,100,25);
@@ -39,10 +39,10 @@ public class LoginPage implements ActionListener {
         messageLabel.setFont(new Font(null,Font.ITALIC,25));
         messageLabel.setText(labelMessage);
 
-        frame.add(userIDLabel);
+        frame.add(usernameLabel);
         frame.add(userPasswordLabel);
         frame.add(messageLabel);
-        frame.add(userIDField);
+        frame.add(usernameField);
         frame.add(userPasswordField);
         frame.add(loginButton);
         frame.add(registerButton);
@@ -56,13 +56,13 @@ public class LoginPage implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== registerButton){
-            userIDField.setText("");
+            usernameField.setText("");
             userPasswordField.setText("");
             frame.dispose();
             RegisterPage registerPage = new RegisterPage();
         }
         if (e.getSource()==loginButton){
-            String userID = userIDField.getText();
+            String userID = usernameField.getText();
             String password = String.valueOf(userPasswordField.getPassword());
 
             if (IDandPasswords.getLogininfo().containsKey(userID)){
