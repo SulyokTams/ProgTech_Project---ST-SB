@@ -35,8 +35,11 @@ public class UniversePage implements ActionListener {
         welcomeLabel.setFont(new Font(null,Font.PLAIN,25));
         welcomeLabel.setText("Welcome " + "username!");
 
-        createLists();
-        createFunctionButtons();
+        String[] types = new String[]{"planets","stars","galaxies"};
+        createLists(types);
+
+        String[] buttonTypes = new String[]{"add","edit","delete"};
+        createFunctionButtons(buttonTypes);
 
         frame.add(welcomeLabel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -47,8 +50,8 @@ public class UniversePage implements ActionListener {
 
     }
 
-    public void createLists() throws SQLException {
-        String[] types = new String[]{"planets","stars","galaxies"};
+    public void createLists(String[] types) throws SQLException {
+
 
         for (int i = 0; i<types.length; i++){
 
@@ -71,8 +74,8 @@ public class UniversePage implements ActionListener {
         }
 
     }
-    public void createFunctionButtons(){
-        String[] types = new String[]{"add","edit","delete"};
+    public void createFunctionButtons(String[] types){
+
         for (int i = 0; i< types.length;i++){
             functionButtons.add(new JButton(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
             functionButtons.get(i).setBounds(25,(i+1)*150,150,50);

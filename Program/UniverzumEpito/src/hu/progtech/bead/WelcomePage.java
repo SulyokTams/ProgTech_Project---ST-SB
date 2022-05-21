@@ -16,10 +16,8 @@ import java.util.ArrayList;
 public class WelcomePage implements ActionListener {
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("Hello!");
-    JButton addButton = new JButton("Add");
-    JButton editButton = new JButton("Edit");
-    JButton deleteButton = new JButton("Delete");
 
+    ArrayList<JButton> functionButtons = new ArrayList<JButton>();
 
     JLabel listLabel = new JLabel("Universe List");
 
@@ -78,20 +76,10 @@ public class WelcomePage implements ActionListener {
         listLabel.setHorizontalAlignment(SwingConstants.CENTER);
         listLabel.setFont(new Font(null,Font.PLAIN,35));
 
-        addButton.setBounds(25,150,150,50);
-        addButton.setFocusable(false);
-        addButton.addActionListener(this);
-        editButton.setBounds(25,300,150,50);
-        editButton.setFocusable(false);
-        editButton.addActionListener(this);
-        deleteButton.setBounds(25,450,150,50);
-        deleteButton.setFocusable(false);
-        deleteButton.addActionListener(this);
+        String[] buttonTypes = new String[]{"add","edit","delete"};
+        createFunctionButtons(buttonTypes);
 
         frame.add(welcomeLabel);
-        frame.add(addButton);
-        frame.add(editButton);
-        frame.add(deleteButton);
         frame.add(jcp);
         frame.add(listLabel);
 
@@ -102,7 +90,16 @@ public class WelcomePage implements ActionListener {
         frame.setVisible(true);
 
     }
+    public void createFunctionButtons(String[] types){
 
+        for (int i = 0; i< types.length;i++){
+            functionButtons.add(new JButton(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
+            functionButtons.get(i).setBounds(25,(i+1)*150,150,50);
+            functionButtons.get(i).setFocusable(false);
+            functionButtons.get(i).addActionListener(this);
+            frame.add(functionButtons.get(i));
+        }
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
 
