@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Máj 22. 00:08
+-- Létrehozás ideje: 2022. Máj 22. 01:45
 -- Kiszolgáló verziója: 10.4.22-MariaDB
 -- PHP verzió: 8.1.1
 
@@ -42,7 +42,8 @@ CREATE TABLE `galaxies` (
 
 INSERT INTO `galaxies` (`id`, `name`, `diameter`, `mass`, `numberOfStars`, `universe_id`) VALUES
 (1, 'andromeda', 2000, '3333', '21321', 1),
-(2, 'Milky Way', 100000, '150', '100', 1);
+(2, 'Milky Way', 100000, '150', '100', 1),
+(5, 'Galax', 12312, '213213', '12312', 1);
 
 -- --------------------------------------------------------
 
@@ -55,7 +56,6 @@ CREATE TABLE `planets` (
   `name` varchar(30) NOT NULL,
   `diameter` int(20) NOT NULL,
   `mass` varchar(20) NOT NULL,
-  `distance` int(20) NOT NULL,
   `orbitalPeriod` int(20) NOT NULL,
   `universe_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -64,9 +64,10 @@ CREATE TABLE `planets` (
 -- A tábla adatainak kiíratása `planets`
 --
 
-INSERT INTO `planets` (`id`, `name`, `diameter`, `mass`, `distance`, `orbitalPeriod`, `universe_id`) VALUES
-(1, 'Earth', 12756, '2400000', 150000000, 1, 1),
-(2, 'Venus', 12000, '12321213521', 108000000, 1, 1);
+INSERT INTO `planets` (`id`, `name`, `diameter`, `mass`, `orbitalPeriod`, `universe_id`) VALUES
+(1, 'Earth', 12756, '2400000', 1, 1),
+(2, 'Venus', 12000, '12321213521', 1, 1),
+(4, 'Mars', 123123, '12321', 123123, 2);
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,8 @@ CREATE TABLE `stars` (
 
 INSERT INTO `stars` (`id`, `name`, `diameter`, `mass`, `brightness`, `universe_id`) VALUES
 (1, 'Alpha Centuri', '2000000', '2200000', '2000', 1),
-(2, 'Sun', '1300000', '222222', '222', 1);
+(2, 'Sun', '1300000', '222222', '222', 1),
+(3, 'Aurum', '12421', '214214', '124124', 1);
 
 -- --------------------------------------------------------
 
@@ -129,12 +131,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `password`) VALUES
 (1, 'Teszt Elek', 'password'),
-(2, 'Agy', 'password'),
 (4, 'foo', 'foo2'),
-(5, 'agy2', 'dfeggr'),
-(6, 'agy3', 'agy'),
-(7, 'agy4', 'agy'),
-(8, 'agy5', 'agy'),
 (9, 'asd', 'test'),
 (10, 'asd2', 'test');
 
@@ -180,19 +177,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `galaxies`
 --
 ALTER TABLE `galaxies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `planets`
 --
 ALTER TABLE `planets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT a táblához `stars`
 --
 ALTER TABLE `stars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `universes`

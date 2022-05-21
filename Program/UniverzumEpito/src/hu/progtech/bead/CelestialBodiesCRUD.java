@@ -1,5 +1,6 @@
 package hu.progtech.bead;
 
+import java.lang.invoke.VarHandle;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,26 +57,18 @@ public class CelestialBodiesCRUD {
         mySQLConnection.connection.close();
         return data;
     }
-   /* public static void insert(String type,String universe_id) throws SQLException {
-        String sixthColumn="";
-        String sql2 = "INSERT INTO universe."+ " (name, diameter,mass," + sixthColumn + "universe_id) VALUES (? , ?)";
-        PreparedStatement statement = mySQLConnection.prepareStatement(sql2);
-        statement.setString(1,name);
-        statement.setString(2,diameter);
+    public static void insert(String type,String universe_id,String[] values) throws SQLException {
+        mySQLConnection = new MySQLConnection();
+        String sql = "INSERT INTO universe."+type +" VALUES (NULL, ? , ?, ?, ?, ?)";
+        PreparedStatement statement = mySQLConnection.prepareStatement(sql);
+        statement.setString(1, values[0]);
+        statement.setString(2,values[1]);
+        statement.setString(3, values[2]);
+        statement.setString(4,values[3]);
+        statement.setString(5,universe_id);
         System.out.println(statement.executeUpdate());
 
-        ArrayList<String> data = new ArrayList<>();
-
-        if (type.equals("galaxies")) {
-            galaxies = new ArrayList<>();
-        }
-        else if(type.equals("stars")){
-            stars = new ArrayList<>();
-        }
-        else if(type.equals("planets")){
-            planets = new ArrayList<>();
-        }
         statement.close();
         mySQLConnection.connection.close();
-    }*/
+    }
 }

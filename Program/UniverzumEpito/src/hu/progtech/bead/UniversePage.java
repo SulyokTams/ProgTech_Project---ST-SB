@@ -19,36 +19,47 @@ public class UniversePage implements ActionListener {
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("Hello!");
 
+    JList selectedList;
     String universe_id;
-    JLabel idLabel = new JLabel("id");
-    JTextField idTextField = new JTextField();
+    ArrayList<JLabel> columnLabels = new ArrayList<>();
+    ArrayList<JTextField> columnTextFields = new ArrayList<>();
+
+    String[] celestialBodyTypes = new String[]{"planets","stars","galaxies"};
+
     ArrayList<JList> lists = new ArrayList<JList>();
     ArrayList<JLabel> listLabels = new ArrayList<JLabel>();
     ArrayList<JScrollPane> scrollPanes = new ArrayList<JScrollPane>();
     ArrayList<JButton> functionButtons = new ArrayList<JButton>();
+    ArrayList<JButton> addButtons = new ArrayList<JButton>();
 
     UniversePage(String universe_id) throws SQLException {
         this.universe_id = universe_id;
 
-        String[] types = new String[]{"planets","stars","galaxies"};
-        createLists(types);
+
+        createLists(celestialBodyTypes);
 
         String[] buttonTypes = new String[]{"add","edit","delete"};
         createFunctionButtons(buttonTypes);
         addListSelectionListeners();
-
+        createColumnFields();
         createFrame();
+
     }
     public void addListSelectionListeners(){
         for (int j=0;j<3;j++){
             lists.get(j).addListSelectionListener(new ListSelectionListener() {
                 public void valueChanged(ListSelectionEvent le) {
-                    JList list2 = (JList)le.getSource();
-                    for (JList list : lists) {
-                        if (list != list2 && list.getSelectedIndex()!=-1) {
-                            list.clearSelection();
+                    selectedList = (JList)le.getSource();
+                    for (int i = 0;i<3;i++) {
+                        if (lists.get(i) != selectedList) {
+                            lists.get(i).clearSelection();
+                            addButtons.get(i).setEnabled(false);
+                        }
+                        else if(lists.get(i) == selectedList){
+                            addButtons.get(i).setEnabled(true);
                         }
                     }
+                    updateColumnLabels();
                 }});
         }
     }
@@ -67,9 +78,16 @@ public class UniversePage implements ActionListener {
 
             scrollPanes.add(new JScrollPane(lists.get(i)));
             scrollPanes.get(i).setBounds((i+1)*300,70,270,430);
-            lists.get(i).setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
             lists.get(i).setFont(new Font(null,Font.PLAIN,25));
             lists.get(i).setBorder(new EmptyBorder(0,0, 10, 0));
+
+            addButtons.add(new JButton("Add " + types[i].substring(0,types[i].length()-1)
+                    .replace("xie","xy")));
+            addButtons.get(i).setBounds((i+1)*300+60,520,150,50);
+            addButtons.get(i).setFocusable(false);
+            addButtons.get(i).addActionListener(this);
+            addButtons.get(i).setEnabled(false);
 
             listLabels.add(new JLabel(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
             listLabels.get(i).setBounds(i*300 + 285,10,300,50);
@@ -79,6 +97,7 @@ public class UniversePage implements ActionListener {
 
             frame.add(scrollPanes.get(i));
             frame.add(listLabels.get(i));
+            frame.add(addButtons.get(i));
         }
     }
 
@@ -91,13 +110,59 @@ public class UniversePage implements ActionListener {
             frame.add(functionButtons.get(i));
         }
     }
+    public void updateColumnLabels(){
+        if (selectedList==null) {
+            for (int i=0;i<4;i++){
+                columnLabels.get(i).setText("");
+            }
+        }
+        else{
+            columnLabels.get(0).setText("Name");
+            columnLabels.get(1).setText("Diameter");
+            columnLabels.get(2).setText("Mass");
 
+            if (selectedList.equals(lists.get(0))){
+
+                columnLabels.get(3).setText("Orbital Period");
+            }
+            else  if (selectedList.equals(lists.get(1))){
+                columnLabels.get(3).setText("Brightness");
+            }
+            else  if (selectedList.equals(lists.get(2))){
+                columnLabels.get(3).setText("Number of stars");
+            }
+        }
+    }
+    public void createColumnFields(){
+        for (int i = 0; i< 4;i++){
+            columnLabels.add(new JLabel());
+            columnLabels.get(i).setBounds(i*250 + 120,600,200,50);
+            columnLabels.get(i).setFont(new Font(null,Font.PLAIN,25));
+            columnTextFields.add(new JTextField());
+            columnTextFields.get(i).setBounds(i*250 + 120,650,200,50);
+            frame.add(columnLabels.get(i));
+            frame.add(columnTextFields.get(i));
+        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         //ADD
-        if (e.getSource()== functionButtons.get(0)){
-     //       int index = list.locationToIndex(evt.getPoint());
+        String[] values = new String[4];
+        for (int i = 0; i < 3;i++){
+            if (e.getSource()== addButtons.get(i)){
+                if(selectedList!=null && selectedList==lists.get(i)){
+
+                    for(int j=0;j<4;j++){
+                        values[j] = columnTextFields.get(j).getText();
+                    }
+                    try {
+                        CelestialBodiesCRUD.insert(celestialBodyTypes[i],universe_id,values);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
         }
     }
 }
