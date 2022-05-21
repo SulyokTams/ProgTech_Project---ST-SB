@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/CellestialBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/sql/universe.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/CelestialBodiesCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Galaxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Galaxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Planet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Planet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Star.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Star.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/RegisterPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,7 @@
       <recent name="hu.progtech.bead" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\sql" />
       <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\src\hu\progtech\bead" />
       <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito" />
       <recent name="G:\Anyagok\Sulyok Balázs EKKE anyaga\Git\ProgTech_Project-ST_SB\Program\UniverzumEpito\.idea" />
@@ -91,7 +94,7 @@
       <workItem from="1653136163233" duration="29000" />
       <workItem from="1653136199572" duration="73000" />
       <workItem from="1653136404585" duration="61000" />
-      <workItem from="1653136492131" duration="23447000" />
+      <workItem from="1653136492131" duration="30631000" />
     </task>
     <servers />
   </component>

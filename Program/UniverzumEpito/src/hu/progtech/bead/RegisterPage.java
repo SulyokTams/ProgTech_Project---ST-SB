@@ -64,7 +64,12 @@ public class RegisterPage implements ActionListener {
             String password = String.valueOf(userPasswordField.getPassword());
             String confirm = String.valueOf(passwordAgainField.getPassword());
 
-            ArrayList<User> loginfo = IDandPasswords.getLogininfo();
+            ArrayList<User> loginfo = null;
+            try {
+                loginfo = IDandPasswords.getLogininfo();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
 
             for (User entry : loginfo)
                 if (entry.username.equals(username)){

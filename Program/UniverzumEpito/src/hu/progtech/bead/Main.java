@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
 
-      //  LoginPage loginPage = new LoginPage("");
+       // LoginPage loginPage = new LoginPage("");
        // RegisterPage registerPage = new RegisterPage();
-      //  WelcomePage welcomePage = new WelcomePage("Agy","2");
+       // WelcomePage welcomePage = new WelcomePage("Agy","2");
         UniversePage universePage = new UniversePage("1");
 
     }

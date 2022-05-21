@@ -66,26 +66,30 @@ public class LoginPage implements ActionListener {
             String username = usernameField.getText();
             String password = String.valueOf(userPasswordField.getPassword());
 
-            if (IDandPasswords.containsUser(username)!=null){
-                if (IDandPasswords.containsUser(username).password.equals(password)){
-                    messageLabel.setForeground(Color.GREEN);
-                    messageLabel.setText("Login successful");
-                    frame.dispose();
-                    try {
-                        WelcomePage welcomePage = new WelcomePage(username,IDandPasswords.containsUser(username).userID);
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
-                    }
+            try {
+                if (IDandPasswords.containsUser(username)!=null){
+                    if (IDandPasswords.containsUser(username).password.equals(password)){
+                        messageLabel.setForeground(Color.GREEN);
+                        messageLabel.setText("Login successful");
+                        frame.dispose();
+                        try {
+                            WelcomePage welcomePage = new WelcomePage(username,IDandPasswords.containsUser(username).userID);
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
 
+                    }
+                    else{
+                        messageLabel.setForeground(Color.RED);
+                        messageLabel.setText("Wrong password");
+                    }
                 }
                 else{
                     messageLabel.setForeground(Color.RED);
-                    messageLabel.setText("Wrong password");
+                    messageLabel.setText("Username not found");
                 }
-            }
-            else{
-                messageLabel.setForeground(Color.RED);
-                messageLabel.setText("Username not found");
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
         }
     }
