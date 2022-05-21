@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +87,7 @@
       <workItem from="1653136163233" duration="29000" />
       <workItem from="1653136199572" duration="73000" />
       <workItem from="1653136404585" duration="61000" />
-      <workItem from="1653136492131" duration="6117000" />
+      <workItem from="1653136492131" duration="11431000" />
     </task>
     <servers />
   </component>
