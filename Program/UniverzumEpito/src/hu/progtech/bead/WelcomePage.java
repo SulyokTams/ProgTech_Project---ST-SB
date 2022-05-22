@@ -18,52 +18,47 @@ public class WelcomePage implements ActionListener {
     JLabel welcomeLabel = new JLabel("Hello!");
 
     ArrayList<JButton> functionButtons = new ArrayList<JButton>();
-
+    JList universeList;
     JLabel listLabel = new JLabel("Universe List");
+
+    JLabel nameLabel = new JLabel("Name");
+    JTextField nameTextField = new JTextField();
+    String userID;
 
     WelcomePage(String username,String userID) throws SQLException {
 
+        this.userID = userID;
         welcomeLabel.setBounds(10,10,400,35);
         welcomeLabel.setFont(new Font(null,Font.PLAIN,25));
         welcomeLabel.setText("Welcome " + "username!");
 
 
-        MySQLConnection mySQLConnection = new MySQLConnection();
-        String sql = "SELECT * FROM universe.universes WHERE user_id="+userID;
-        Statement statement = mySQLConnection.createStatement();
-        ResultSet result = statement.executeQuery(sql);
-        int count = 0;
-        ArrayList<String> data = new ArrayList<>();
-        ArrayList<Universe> universes = new ArrayList<>();
-        while(result.next()){
-            String name = result.getString("name");
-            String user_id = result.getString("user_id");
-            String universe_id = result.getString("id");
-            data.add(name);
-            universes.add(new Universe(universe_id,name,user_id));
-            System.out.println(data.get(count));
-            count++;
 
-        }
-        statement.close();
-        mySQLConnection.connection.close();
-
-        JList universeList = new JList(data.toArray());
-        JScrollPane jcp = new JScrollPane(universeList);
-        jcp.setBounds(800,70,370,680);
-
+        universeList = new JList(UniverseCRUD.select(userID).toArray());
+        universeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         universeList.setFont(new Font(null,Font.PLAIN,35));
         universeList.setBorder(new EmptyBorder(0,10, 10, 10));
+
+        JScrollPane jcp = new JScrollPane(universeList);
+        jcp.setBounds(800,70,370,430);
+
 
         universeList.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 JList list = (JList)evt.getSource();
+                if (evt.getClickCount() == 1) {
+
+                    // Single-click detected
+                    int index = list.locationToIndex(evt.getPoint());
+                    nameTextField.setText(UniverseCRUD.universes.get(universeList.getSelectedIndex()).name);
+                    System.out.println("index: "+index);
+                }
                 if (evt.getClickCount() == 2) {
 
                     // Double-click detected
                     int index = list.locationToIndex(evt.getPoint());
                     try {
-                        UniversePage universePage = new UniversePage(universes.get(index).id);
+                        UniversePage universePage = new UniversePage(UniverseCRUD.universes.get(index).id);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -72,9 +67,15 @@ public class WelcomePage implements ActionListener {
             }
         });
 
+
         listLabel.setBounds(785,10,400,50);
         listLabel.setHorizontalAlignment(SwingConstants.CENTER);
         listLabel.setFont(new Font(null,Font.PLAIN,35));
+
+        nameLabel.setBounds(120,600,200,50);
+        nameLabel.setFont(new Font(null,Font.PLAIN,25));
+        nameTextField.setBounds(120,650,200,50);
+
 
         String[] buttonTypes = new String[]{"add","edit","delete"};
         createFunctionButtons(buttonTypes);
@@ -82,7 +83,8 @@ public class WelcomePage implements ActionListener {
         frame.add(welcomeLabel);
         frame.add(jcp);
         frame.add(listLabel);
-
+        frame.add(nameLabel);
+        frame.add(nameTextField);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(1200,800);
         frame.setLayout(null);
@@ -100,8 +102,35 @@ public class WelcomePage implements ActionListener {
             frame.add(functionButtons.get(i));
         }
     }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
+        //ADD
+            if (e.getSource()== functionButtons.get(0)){
+                try {
+                    UniverseCRUD.insert(userID,nameTextField.getText());
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
 
+        //EDIT
+        if (e.getSource() == functionButtons.get(1)){
+            try {
+            UniverseCRUD.update(userID,nameTextField.getText(),
+                       UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        //DELETE
+        if (e.getSource() == functionButtons.get(2)){
+            try {
+                UniverseCRUD.delete(UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

@@ -188,12 +188,13 @@ public class UniversePage implements ActionListener {
                         ex.printStackTrace();
                     }
                 }
+
             }
         }
         //EDIT
 
-            if (e.getSource() == functionButtons.get(0)){
-                for (int i = 0; i < 3;i++){
+        if (e.getSource() == functionButtons.get(0)){
+            for (int i = 0; i < 3;i++){
 
                 if(selectedList!=null && selectedList==lists.get(i)){
 
@@ -202,8 +203,8 @@ public class UniversePage implements ActionListener {
                     }
                     try {
                         if(i==0) {
-                        CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
-                                CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);}
+                            CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
+                                    CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);}
                         else if(i==1) {
                             CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
                                     CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id); }
@@ -228,7 +229,7 @@ public class UniversePage implements ActionListener {
                     try {
                         if(i==0) {
                             CelestialBodiesCRUD.delete(celestialBodyTypes[i],
-                                CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);
+                                    CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);
                         }
                         else if(i==1) {
                             CelestialBodiesCRUD.delete(celestialBodyTypes[i],
