@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 public class WelcomePage implements ActionListener {
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Hello!");
 
     ArrayList<JButton> functionButtons = new ArrayList<JButton>();
+
     JList universeList;
     JLabel listLabel = new JLabel("Universe List");
 
@@ -25,14 +25,8 @@ public class WelcomePage implements ActionListener {
     JTextField nameTextField = new JTextField();
     String userID;
 
-    WelcomePage(String username,String userID) throws SQLException {
-
+    WelcomePage(String userID) throws SQLException {
         this.userID = userID;
-        welcomeLabel.setBounds(10,10,400,35);
-        welcomeLabel.setFont(new Font(null,Font.PLAIN,25));
-        welcomeLabel.setText("Welcome " + "username!");
-
-
 
         universeList = new JList(UniverseCRUD.select(userID).toArray());
         universeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -51,22 +45,20 @@ public class WelcomePage implements ActionListener {
                     // Single-click detected
                     int index = list.locationToIndex(evt.getPoint());
                     nameTextField.setText(UniverseCRUD.universes.get(universeList.getSelectedIndex()).name);
-                    System.out.println("index: "+index);
+                    nameTextField.setFont(new Font(null,Font.PLAIN,22));
+                    nameTextField.setMargin(new Insets(0,5,0,0));
                 }
                 if (evt.getClickCount() == 2) {
-
                     // Double-click detected
                     int index = list.locationToIndex(evt.getPoint());
                     try {
-                        UniversePage universePage = new UniversePage(UniverseCRUD.universes.get(index).id);
+                        UniversePage universePage = new UniversePage(UniverseCRUD.universes.get(index).id,userID);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("index: "+index);
                 }
             }
         });
-
 
         listLabel.setBounds(785,10,400,50);
         listLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -80,7 +72,6 @@ public class WelcomePage implements ActionListener {
         String[] buttonTypes = new String[]{"add","edit","delete"};
         createFunctionButtons(buttonTypes);
 
-        frame.add(welcomeLabel);
         frame.add(jcp);
         frame.add(listLabel);
         frame.add(nameLabel);
@@ -90,7 +81,6 @@ public class WelcomePage implements ActionListener {
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
     public void createFunctionButtons(String[] types){
 
@@ -131,6 +121,15 @@ public class WelcomePage implements ActionListener {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+        }
+      //  universeList.removeAll();
+        try {
+            DefaultListModel dm =  new DefaultListModel();
+            dm.addAll(UniverseCRUD.select(userID));
+            universeList.setModel(dm);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 }

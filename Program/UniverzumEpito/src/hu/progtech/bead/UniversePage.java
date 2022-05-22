@@ -14,8 +14,10 @@ public class UniversePage implements ActionListener {
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("Hello!");
 
+
     JList selectedList;
     String universe_id;
+    String userID;
     ArrayList<JLabel> columnLabels = new ArrayList<>();
     ArrayList<JTextField> columnTextFields = new ArrayList<>();
 
@@ -27,13 +29,13 @@ public class UniversePage implements ActionListener {
     ArrayList<JButton> functionButtons = new ArrayList<JButton>();
     ArrayList<JButton> addButtons = new ArrayList<JButton>();
 
-    UniversePage(String universe_id) throws SQLException {
+    UniversePage(String universe_id, String userID) throws SQLException {
         this.universe_id = universe_id;
-
+        this.userID = userID;
 
         createLists(celestialBodyTypes);
 
-        String[] buttonTypes = new String[]{"edit","delete"};
+        String[] buttonTypes = new String[]{"go back","edit","delete"};
         createFunctionButtons(buttonTypes);
         addListSelectionListeners();
         createColumnFields();
@@ -129,7 +131,7 @@ public class UniversePage implements ActionListener {
     public void createFunctionButtons(String[] types){
         for (int i = 0; i< types.length;i++){
             functionButtons.add(new JButton(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
-            functionButtons.get(i).setBounds(25,(i+1)*150,150,50);
+            functionButtons.get(i).setBounds(25,(i)*150+30,150,50);
             functionButtons.get(i).setFocusable(false);
             functionButtons.get(i).addActionListener(this);
             frame.add(functionButtons.get(i));
@@ -166,6 +168,8 @@ public class UniversePage implements ActionListener {
             columnLabels.get(i).setFont(new Font(null,Font.PLAIN,25));
             columnTextFields.add(new JTextField());
             columnTextFields.get(i).setBounds(i*250 + 120,650,200,50);
+            columnTextFields.get(i).setFont(new Font(null,Font.PLAIN,22));
+            columnTextFields.get(i).setMargin(new Insets(0,5,0,0));
             frame.add(columnLabels.get(i));
             frame.add(columnTextFields.get(i));
         }
@@ -173,6 +177,15 @@ public class UniversePage implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //GO BACK
+        if (e.getSource() == functionButtons.get(0)){
+            try {
+                WelcomePage welcomePage = new WelcomePage(userID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return;
+        }
         //ADD
         String[] values = new String[4];
         for (int i = 0; i < 3;i++){
@@ -193,7 +206,7 @@ public class UniversePage implements ActionListener {
         }
         //EDIT
 
-        if (e.getSource() == functionButtons.get(0)){
+        if (e.getSource() == functionButtons.get(1)){
             for (int i = 0; i < 3;i++){
 
                 if(selectedList!=null && selectedList==lists.get(i)){
@@ -219,7 +232,7 @@ public class UniversePage implements ActionListener {
         }
         //DELETE
 
-        if (e.getSource() == functionButtons.get(1)){
+        if (e.getSource() == functionButtons.get(2)){
             for (int i = 0; i < 3;i++){
 
                 if(selectedList!=null && selectedList==lists.get(i)){
@@ -244,6 +257,22 @@ public class UniversePage implements ActionListener {
                     }
                 }
             }
+        }
+        try {
+            DefaultListModel dm =  new DefaultListModel();
+            if(selectedList==lists.get(0)){
+                dm.addAll(CelestialBodiesCRUD.select("planets",universe_id));
+            }
+            else if(selectedList==lists.get(1)){
+                dm.addAll(CelestialBodiesCRUD.select("stars",universe_id));
+            }
+            else if(selectedList==lists.get(2)){
+                dm.addAll(CelestialBodiesCRUD.select("galaxies",universe_id));
+            }
+            selectedList.setModel(dm);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 }

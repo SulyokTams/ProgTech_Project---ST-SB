@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniverseCRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" afterDir="false" />
@@ -95,7 +93,7 @@
       <workItem from="1653136404585" duration="61000" />
       <workItem from="1653136492131" duration="39467000" />
       <workItem from="1653208155601" duration="1448000" />
-      <workItem from="1653245925498" duration="3894000" />
+      <workItem from="1653245925498" duration="7289000" />
     </task>
     <servers />
   </component>

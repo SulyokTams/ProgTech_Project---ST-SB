@@ -73,7 +73,7 @@ public class LoginPage implements ActionListener {
                         messageLabel.setText("Login successful");
                         frame.dispose();
                         try {
-                            WelcomePage welcomePage = new WelcomePage(username,IDandPasswords.containsUser(username).userID);
+                            WelcomePage welcomePage = new WelcomePage(IDandPasswords.containsUser(username).userID);
                         } catch (SQLException ex) {
                             ex.printStackTrace();
                         }
