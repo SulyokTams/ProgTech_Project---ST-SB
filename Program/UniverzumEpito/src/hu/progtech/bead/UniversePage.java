@@ -12,22 +12,21 @@ import java.util.ArrayList;
 
 public class UniversePage implements ActionListener {
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Hello!");
 
-
-    JList selectedList;
     String universe_id;
     String userID;
+
     ArrayList<JLabel> columnLabels = new ArrayList<>();
     ArrayList<JTextField> columnTextFields = new ArrayList<>();
 
     String[] celestialBodyTypes = new String[]{"planets","stars","galaxies"};
 
-    ArrayList<JList> lists = new ArrayList<JList>();
-    ArrayList<JLabel> listLabels = new ArrayList<JLabel>();
-    ArrayList<JScrollPane> scrollPanes = new ArrayList<JScrollPane>();
-    ArrayList<JButton> functionButtons = new ArrayList<JButton>();
-    ArrayList<JButton> addButtons = new ArrayList<JButton>();
+    JList selectedList;
+    ArrayList<JList> lists = new ArrayList<>();
+    ArrayList<JLabel> listLabels = new ArrayList<>();
+    ArrayList<JScrollPane> scrollPanes = new ArrayList<>();
+    ArrayList<JButton> functionButtons = new ArrayList<>();
+    ArrayList<JButton> addButtons = new ArrayList<>();
 
     UniversePage(String universe_id, String userID) throws SQLException {
         this.universe_id = universe_id;
@@ -39,6 +38,7 @@ public class UniversePage implements ActionListener {
         createFunctionButtons(buttonTypes);
         addListSelectionListeners();
         createColumnFields();
+        updateColumnLabels();
         createFrame();
 
     }
@@ -50,10 +50,8 @@ public class UniversePage implements ActionListener {
                     for (int i = 0;i<3;i++) {
                         if (lists.get(i) != selectedList && le.getValueIsAdjusting()) {
                             lists.get(i).clearSelection();
-                            addButtons.get(i).setEnabled(false);
                         }
                         else if(lists.get(i) == selectedList){
-                            addButtons.get(i).setEnabled(true);
                             if (i!=-1){
                                 updateColumnTextFields(i);
                             }
@@ -61,7 +59,6 @@ public class UniversePage implements ActionListener {
                         }
                     }
                     updateColumnLabels();
-
                 }});
         }
     }
@@ -114,7 +111,6 @@ public class UniversePage implements ActionListener {
             addButtons.get(i).setBounds((i+1)*300+60,520,150,50);
             addButtons.get(i).setFocusable(false);
             addButtons.get(i).addActionListener(this);
-            addButtons.get(i).setEnabled(false);
 
             listLabels.add(new JLabel(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
             listLabels.get(i).setBounds(i*300 + 285,10,300,50);
@@ -137,29 +133,6 @@ public class UniversePage implements ActionListener {
             frame.add(functionButtons.get(i));
         }
     }
-    public void updateColumnLabels(){
-        if (selectedList==null) {
-            for (int i=0;i<4;i++){
-                columnLabels.get(i).setText("");
-            }
-        }
-        else{
-            columnLabels.get(0).setText("Name");
-            columnLabels.get(1).setText("Diameter");
-            columnLabels.get(2).setText("Mass");
-
-            if (selectedList.equals(lists.get(0))){
-
-                columnLabels.get(3).setText("Orbital Period");
-            }
-            else  if (selectedList.equals(lists.get(1))){
-                columnLabels.get(3).setText("Brightness");
-            }
-            else  if (selectedList.equals(lists.get(2))){
-                columnLabels.get(3).setText("Number of stars");
-            }
-        }
-    }
 
     public void createColumnFields(){
         for (int i = 0; i< 4;i++){
@@ -175,6 +148,25 @@ public class UniversePage implements ActionListener {
         }
     }
 
+    public void updateColumnLabels(){
+            columnLabels.get(0).setText("Name");
+            columnLabels.get(1).setText("Diameter");
+            columnLabels.get(2).setText("Mass");
+            if (selectedList == null){
+                columnLabels.get(3).setText("O/B/N");
+            }
+            else if (selectedList.equals(lists.get(0))){
+                columnLabels.get(3).setText("Orbital Period");
+            }
+            else  if (selectedList.equals(lists.get(1))){
+                columnLabels.get(3).setText("Brightness");
+            }
+            else  if (selectedList.equals(lists.get(2))){
+                columnLabels.get(3).setText("Number of stars");
+            }
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         //GO BACK
@@ -186,33 +178,41 @@ public class UniversePage implements ActionListener {
             }
             return;
         }
+        int index = 0;
         //ADD
         String[] values = new String[4];
         for (int i = 0; i < 3;i++){
-            if (e.getSource()== addButtons.get(i)){
-                if(selectedList!=null && selectedList==lists.get(i)){
-
+            if (selectedList != null && e.getSource()== addButtons.get(i)){
+                index = i;
                     for(int j=0;j<4;j++){
-                        values[j] = columnTextFields.get(j).getText();
+                        if (!columnTextFields.get(j).getText().equals("")) {
+                            values[j] = columnTextFields.get(j).getText();
+                        }
+                        else {
+                            return;
+                        }
                     }
+
                     try {
                         CelestialBodiesCRUD.insert(celestialBodyTypes[i],universe_id,values);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                }
-
             }
         }
         //EDIT
-
         if (e.getSource() == functionButtons.get(1)){
             for (int i = 0; i < 3;i++){
 
                 if(selectedList!=null && selectedList==lists.get(i)){
-
+                    index = i;
                     for(int j=0;j<4;j++){
-                        values[j] = columnTextFields.get(j).getText();
+                        System.out.println(columnTextFields.get(j).getText().equals(""));
+                        if (!columnTextFields.get(j).getText().equals(""))
+                            values[j] = columnTextFields.get(j).getText();
+                        else {
+                            throw new NullPointerException();
+                        }
                     }
                     try {
                         if(i==0) {
@@ -228,6 +228,9 @@ public class UniversePage implements ActionListener {
                         ex.printStackTrace();
                     }
                 }
+                else if(selectedList==null && selectedList==lists.get(i)){
+                    throw new NullPointerException();
+                }
             }
         }
         //DELETE
@@ -236,9 +239,7 @@ public class UniversePage implements ActionListener {
             for (int i = 0; i < 3;i++){
 
                 if(selectedList!=null && selectedList==lists.get(i)){
-
-                    for(int j=0;j<4;j++){
-                    }
+                    index = i;
                     try {
                         if(i==0) {
                             CelestialBodiesCRUD.delete(celestialBodyTypes[i],
@@ -260,19 +261,22 @@ public class UniversePage implements ActionListener {
         }
         try {
             DefaultListModel dm =  new DefaultListModel();
-            if(selectedList==lists.get(0)){
+            if(index==0){
                 dm.addAll(CelestialBodiesCRUD.select("planets",universe_id));
             }
-            else if(selectedList==lists.get(1)){
+            else if(index==1){
                 dm.addAll(CelestialBodiesCRUD.select("stars",universe_id));
             }
-            else if(selectedList==lists.get(2)){
+            else if(index==2){
                 dm.addAll(CelestialBodiesCRUD.select("galaxies",universe_id));
             }
-            selectedList.setModel(dm);
+            lists.get(index).setModel(dm);
 
         } catch (SQLException ex) {
             ex.printStackTrace();
+        } catch (NullPointerException ex){
+
         }
+
     }
 }

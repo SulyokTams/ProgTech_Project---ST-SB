@@ -31,8 +31,7 @@ public class WelcomePage implements ActionListener {
         universeList = new JList(UniverseCRUD.select(userID).toArray());
         universeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         universeList.setFont(new Font(null,Font.PLAIN,35));
-        universeList.setBorder(new EmptyBorder(0,10, 10, 10));
-
+        universeList.setBorder(new EmptyBorder(0,0, 10, 0));
         JScrollPane jcp = new JScrollPane(universeList);
         jcp.setBounds(800,70,370,430);
 
@@ -98,28 +97,34 @@ public class WelcomePage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //ADD
             if (e.getSource()== functionButtons.get(0)){
-                try {
-                    UniverseCRUD.insert(userID,nameTextField.getText());
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                if (! nameTextField.getText().equals("")){
+                    try {
+                        UniverseCRUD.insert(userID,nameTextField.getText());
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
 
         //EDIT
         if (e.getSource() == functionButtons.get(1)){
-            try {
-            UniverseCRUD.update(userID,nameTextField.getText(),
-                       UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+            if (!nameTextField.getText().equals("")){
+                try {
+                UniverseCRUD.update(userID,nameTextField.getText(),
+                           UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
         //DELETE
         if (e.getSource() == functionButtons.get(2)){
-            try {
-                UniverseCRUD.delete(UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+            if(universeList.getSelectedIndex()!=-1){
+                try {
+                    UniverseCRUD.delete(UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
       //  universeList.removeAll();
