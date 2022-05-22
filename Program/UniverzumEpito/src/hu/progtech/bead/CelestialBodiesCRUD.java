@@ -98,4 +98,14 @@ public class CelestialBodiesCRUD {
         statement.close();
         mySQLConnection.connection.close();
     }
+    public static void delete(String type, String id) throws SQLException {
+        mySQLConnection = new MySQLConnection();
+        String sql = "DELETE FROM " + type + " WHERE id = ?;";
+        PreparedStatement statement = mySQLConnection.prepareStatement(sql);
+        statement.setString(1,id);
+        System.out.println(statement.executeUpdate());
+
+        statement.close();
+        mySQLConnection.connection.close();
+    }
 }

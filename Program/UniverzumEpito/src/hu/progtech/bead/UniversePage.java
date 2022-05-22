@@ -216,5 +216,33 @@ public class UniversePage implements ActionListener {
                 }
             }
         }
+        //DELETE
+
+        if (e.getSource() == functionButtons.get(1)){
+            for (int i = 0; i < 3;i++){
+
+                if(selectedList!=null && selectedList==lists.get(i)){
+
+                    for(int j=0;j<4;j++){
+                    }
+                    try {
+                        if(i==0) {
+                            CelestialBodiesCRUD.delete(celestialBodyTypes[i],
+                                CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);
+                        }
+                        else if(i==1) {
+                            CelestialBodiesCRUD.delete(celestialBodyTypes[i],
+                                    CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id);
+                        }
+                        else if(i==2) {
+                            CelestialBodiesCRUD.delete(celestialBodyTypes[i],
+                                    CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).id);
+                        }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 }
