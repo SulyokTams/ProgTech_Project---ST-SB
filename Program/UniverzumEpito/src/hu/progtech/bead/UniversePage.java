@@ -7,12 +7,7 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class UniversePage implements ActionListener {
@@ -38,7 +33,7 @@ public class UniversePage implements ActionListener {
 
         createLists(celestialBodyTypes);
 
-        String[] buttonTypes = new String[]{"add","edit","delete"};
+        String[] buttonTypes = new String[]{"edit","delete"};
         createFunctionButtons(buttonTypes);
         addListSelectionListeners();
         createColumnFields();
@@ -51,16 +46,46 @@ public class UniversePage implements ActionListener {
                 public void valueChanged(ListSelectionEvent le) {
                     selectedList = (JList)le.getSource();
                     for (int i = 0;i<3;i++) {
-                        if (lists.get(i) != selectedList) {
+                        if (lists.get(i) != selectedList && le.getValueIsAdjusting()) {
                             lists.get(i).clearSelection();
                             addButtons.get(i).setEnabled(false);
                         }
                         else if(lists.get(i) == selectedList){
                             addButtons.get(i).setEnabled(true);
+                            if (i!=-1){
+                                updateColumnTextFields(i);
+                            }
+
                         }
                     }
                     updateColumnLabels();
+
                 }});
+        }
+    }
+    public void updateColumnTextFields(int j){
+        if (selectedList==null||selectedList.getSelectedIndex()==-1) {
+            for (int i=0;i<4;i++){
+                columnTextFields.get(i).setText("");
+            }
+        }
+        else if(j==0){
+            columnTextFields.get(0).setText(CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).name);
+            columnTextFields.get(1).setText(CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).diameter);
+            columnTextFields.get(2).setText(CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).mass);
+            columnTextFields.get(3).setText(CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).orbitalPeriod);
+        }
+        else  if(j==1){
+            columnTextFields.get(0).setText(CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).name);
+            columnTextFields.get(1).setText(CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).diameter);
+            columnTextFields.get(2).setText(CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).mass);
+            columnTextFields.get(3).setText(CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).brightness);
+        }
+        else  if(j==2){
+            columnTextFields.get(0).setText(CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).name);
+            columnTextFields.get(1).setText(CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).diameter);
+            columnTextFields.get(2).setText(CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).mass);
+            columnTextFields.get(3).setText(CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).numberOfStars);
         }
     }
     public void createFrame(){
@@ -133,6 +158,7 @@ public class UniversePage implements ActionListener {
             }
         }
     }
+
     public void createColumnFields(){
         for (int i = 0; i< 4;i++){
             columnLabels.add(new JLabel());
@@ -158,6 +184,32 @@ public class UniversePage implements ActionListener {
                     }
                     try {
                         CelestialBodiesCRUD.insert(celestialBodyTypes[i],universe_id,values);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+        //EDIT
+
+            if (e.getSource() == functionButtons.get(0)){
+                for (int i = 0; i < 3;i++){
+
+                if(selectedList!=null && selectedList==lists.get(i)){
+
+                    for(int j=0;j<4;j++){
+                        values[j] = columnTextFields.get(j).getText();
+                    }
+                    try {
+                        if(i==0) {
+                        CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
+                                CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);}
+                        else if(i==1) {
+                            CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
+                                    CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id); }
+                        else if(i==2) {
+                            CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
+                                    CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).id); }
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }

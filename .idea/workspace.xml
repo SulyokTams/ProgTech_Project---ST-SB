@@ -37,6 +37,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="158" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -88,7 +89,7 @@
       <workItem from="1653136163233" duration="29000" />
       <workItem from="1653136199572" duration="73000" />
       <workItem from="1653136404585" duration="61000" />
-      <workItem from="1653136492131" duration="35292000" />
+      <workItem from="1653136492131" duration="39397000" />
     </task>
     <servers />
   </component>

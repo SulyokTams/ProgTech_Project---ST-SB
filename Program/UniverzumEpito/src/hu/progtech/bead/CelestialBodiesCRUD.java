@@ -71,4 +71,31 @@ public class CelestialBodiesCRUD {
         statement.close();
         mySQLConnection.connection.close();
     }
+    public static void update(String type,String universe_id,String[] values,String id) throws SQLException {
+        mySQLConnection = new MySQLConnection();
+        String sql = "";
+        if(type.equals("planets")){
+             sql = "UPDATE " + type + " SET `name` = ?, `diameter` = ?, `mass` = ?," +
+                    " `orbitalPeriod` = ?, `universe_id` = ? WHERE `id` = ?;";
+        }
+        else if(type.equals("stars")){
+             sql = "UPDATE " + type + " SET `name` = ?, `diameter` = ?, `mass` = ?," +
+                    " `brightness` = ?, `universe_id` = ? WHERE `id` = ?;";
+        }
+        else if(type.equals("galaxies")){
+             sql = "UPDATE " + type + " SET `name` = ?, `diameter` = ?, `mass` = ?," +
+                    " `numberOfStars` = ?, `universe_id` = ? WHERE `id` = ?;";
+        }
+        PreparedStatement statement = mySQLConnection.prepareStatement(sql);
+        statement.setString(1, values[0]);
+        statement.setString(2,values[1]);
+        statement.setString(3, values[2]);
+        statement.setString(4,values[3]);
+        statement.setString(5,universe_id);
+        statement.setString(6,id);
+        System.out.println(statement.executeUpdate());
+
+        statement.close();
+        mySQLConnection.connection.close();
+    }
 }
