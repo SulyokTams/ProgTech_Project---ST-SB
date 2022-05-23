@@ -1,7 +1,5 @@
 package hu.progtech.bead;
 
-import com.mysql.cj.log.Log;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

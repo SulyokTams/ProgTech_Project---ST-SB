@@ -102,6 +102,7 @@ public class WelcomePage extends Container implements BigPage {
                     int index = list.locationToIndex(evt.getPoint());
                     try {
                         UniversePage universePage = new UniversePage(UniverseCRUD.universes.get(index).id,userID);
+                        frame.setVisible(false);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
