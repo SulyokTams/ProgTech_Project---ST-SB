@@ -304,6 +304,30 @@ Felhasználó egyedet jellemzi:
 
 ## 10. Teszt Terv
 
+A tesztelések célja a rendszer és komponensei funkcionalitásának teljes vizsgálata, ellenőrzése, a rendszer által megvalósított üzleti szolgáltatások verifikálása. 
+
+### <strong>Tesztelési eljárások</strong>:
+
+### Unit teszt:
+
+Ahol csak lehetséges, szükséges már a fejlesztési idő alatt is tesztelni, hogy a metódusok megfelelően működnek-e.
+Ezért a metódusok megfelelő működésének biztosítására mindegyikhez írni kell Unit teszteket, a minnél nagyobb kódlefedettséget szem előtt tartva. A metódusok akkor vannak kész, ha a tesztesetek hiba nélkül lefutnak az egyes metódusokon.
+
+### Alfa teszt:
+
+A teszt elsődleges célja: az eddig meglévő funkcióknak a különböző böngészőkkel, és androidokkal való kompatibilitásának tesztelése. A tesztet a fejlesztők végzik.
+Az eljárás sikeres, ha különböző böngészőkben és különböző androidokon is megfelelően működnek a különböző funkciók. A teszt időtartama egy hét. 
+
+## <strong>Tesztelendő funkciók</strong>:
+
+- Adatbázis kapcsolat: A programnak képesnek kell lennie kapcsolódni az adatbázishoz.
+- Bejelentkezés: A már adatbázisban lévő adatokkal képes legyen bejelentkeznie a felhasználónak.
+- Regisztráció: A jelszavaknak megkell egyezniük, az adatbázisba új adatnak kell létre jönni.
+- Univerzum: Univerzum szerkesztésekor változzon az adatbázis.
+- Égitestek: Égitestek szerkesztésekor változzon az adatbázis, a bevitt érétkek megfelelőek legyenek.
+
 ## 11. Telepítési Terv
+
+
 
 ## 12. Karbantartási Terv
