@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class RegisterForm implements ActionListener {
+public class RegisterForm{
     private JTextField textFieldName;
     private JPasswordField passwordFieldPass;
     private JPasswordField passwordFieldPassAgain;
@@ -17,7 +17,58 @@ public class RegisterForm implements ActionListener {
     public JPanel panelRegister;
     public JFrame registerFrame;
 
-    RegisterForm(){}
+    RegisterForm(){
+        buttonVissza.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textFieldName.setText("");
+                passwordFieldPass.setText("");
+                passwordFieldPassAgain.setText("");
+
+                LoginForm.getInstance().loginFrame.setVisible(true);
+                RegisterForm.getInstance().registerFrame.setVisible(false);
+            }
+        });
+
+        buttonRegister.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource()==buttonRegister){
+                    String username = textFieldName.getText();
+                    String password = String.valueOf(passwordFieldPass.getPassword());
+                    String confirm = String.valueOf(passwordFieldPassAgain.getPassword());
+
+                    ArrayList<User> loginfo = null;
+                    try {
+                        loginfo = IDandPasswords.getLogininfo();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+
+                    for (User entry : loginfo)
+                        if (entry.username.equals(username)){
+                            labelMessage.setForeground(Color.RED);
+                            labelMessage.setText("Username already exists!");
+                            return;
+                        }
+                    if (!password.equals(confirm)){
+
+                        labelMessage.setForeground(Color.RED);
+                        labelMessage.setText("Wrong confirmation!");
+                    }
+                    else{
+                        try {
+                            IDandPasswords.insertUser(username,password);
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
+                        LoginForm loginPage = new LoginForm();
+                        loginPage.labelMessage.setForeground(Color.GREEN);
+                    }
+                }
+            }
+        });
+    }
 
     private static class RegisterFormHolder {
         private static final RegisterForm INSTANCE = new RegisterForm();
@@ -25,42 +76,5 @@ public class RegisterForm implements ActionListener {
 
     public static RegisterForm getInstance() {
         return RegisterForm.RegisterFormHolder.INSTANCE;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==buttonRegister){
-            String username = textFieldName.getText();
-            String password = String.valueOf(passwordFieldPass.getPassword());
-            String confirm = String.valueOf(passwordFieldPassAgain.getPassword());
-
-            ArrayList<User> loginfo = null;
-            try {
-                loginfo = IDandPasswords.getLogininfo();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-
-            for (User entry : loginfo)
-                if (entry.username.equals(username)){
-                    labelMessage.setForeground(Color.RED);
-                    labelMessage.setText("Username already exists!");
-                    return;
-                }
-            if (!password.equals(confirm)){
-
-                labelMessage.setForeground(Color.RED);
-                labelMessage.setText("Wrong confirmation!");
-            }
-            else{
-                try {
-                    IDandPasswords.insertUser(username,password);
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-                LoginForm loginPage = new LoginForm();
-                loginPage.labelMessage.setForeground(Color.GREEN);
-            }
-        }
     }
 }
