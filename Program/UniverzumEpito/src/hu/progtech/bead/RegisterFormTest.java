@@ -26,10 +26,11 @@ class RegisterFormTest {
         RegisterForm.getInstance().buttonRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String pass = RegisterForm.getInstance().passwordFieldPass.getText();
-                String passAgain = RegisterForm.getInstance().passwordFieldPass.getText();
+                String pass = "test";
+                String passAgain = "test";
+                passAgain = String.valueOf(RegisterForm.getInstance().passwordFieldPassAgain);
 
-                assertEquals(pass, passAgain);
+                assertEquals(pass, String.valueOf(RegisterForm.getInstance().passwordFieldPassAgain));
             }
         });
     }
@@ -40,7 +41,7 @@ class RegisterFormTest {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = RegisterForm.getInstance().textFieldName.getText();
-                String pass = RegisterForm.getInstance().passwordFieldPass.getText();
+                String pass = String.valueOf(RegisterForm.getInstance().passwordFieldPass);
 
                 assertNotNull(name);
                 assertNotNull(pass);

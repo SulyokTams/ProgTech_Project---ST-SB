@@ -22,8 +22,8 @@ public class LoginForm{
         buttonRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textFieldName.setText("");
-                passwordFieldPass.setText("");
+                textFieldName.setText(null);
+                passwordFieldPass.setText(null);
 
                 RegisterForm.getInstance().registerFrame = new JFrame("Univerzum Készítő - Regisztráció");
                 RegisterForm.getInstance().registerFrame.setContentPane(new RegisterForm().panelRegister);
@@ -38,35 +38,33 @@ public class LoginForm{
         buttonLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource()==buttonLogin){
-                    String username = textFieldName.getText();
-                    String password = String.valueOf(passwordFieldPass.getPassword());
-                    try {
-                        if (IDandPasswords.containsUser(username)!=null){
-                            if (IDandPasswords.containsUser(username).password.equals(password)){
-                                showMessageDialog(null, "Sikeres Bejelentkezés!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
+                String username = textFieldName.getText();
+                String password = String.valueOf(passwordFieldPass.getPassword());
+                try {
+                    if (IDandPasswords.containsUser(username)!=null){
+                        if (IDandPasswords.containsUser(username).password.equals(password)){
+                            showMessageDialog(null, "Sikeres Bejelentkezés!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
 
-                                //UniversesForm.getInstance().UniverseuserID = IDandPasswords.containsUser(username).userID;
-                                UniversesForm.getInstance().universesFrame = new JFrame("Univerzum Készítő - Univerzumok");
-                                UniversesForm.getInstance().universesFrame.setContentPane(new UniversesForm().panelUniverses);
-                                UniversesForm.getInstance().universesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                                UniversesForm.getInstance().universesFrame.setSize(800, 600);
-                                UniversesForm.getInstance().universesFrame.setLocationRelativeTo(null);
-                                UniversesForm.getInstance().universesFrame.setVisible(true);
-                                LoginForm.getInstance().loginFrame.setVisible(false);
-                            }
-                            else{
-                                labelMessage.setForeground(Color.RED);
-                                labelMessage.setText("Hibás Jelszó!");
-                            }
+                            //UniversesForm.getInstance().UniverseuserID = IDandPasswords.containsUser(username).userID;
+                            UniversesForm.getInstance().universesFrame = new JFrame("Univerzum Készítő - Univerzumok");
+                            UniversesForm.getInstance().universesFrame.setContentPane(new UniversesForm().panelUniverses);
+                            UniversesForm.getInstance().universesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            UniversesForm.getInstance().universesFrame.setSize(800, 600);
+                            UniversesForm.getInstance().universesFrame.setLocationRelativeTo(null);
+                            UniversesForm.getInstance().universesFrame.setVisible(true);
+                            LoginForm.getInstance().loginFrame.setVisible(false);
                         }
                         else{
                             labelMessage.setForeground(Color.RED);
-                            labelMessage.setText("Nincs ilyen nevű felhasználó!");
+                            labelMessage.setText("Hibás Jelszó!");
                         }
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
                     }
+                    else{
+                        labelMessage.setForeground(Color.RED);
+                        labelMessage.setText("Nincs ilyen nevű felhasználó!");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                 }
             }
         });
