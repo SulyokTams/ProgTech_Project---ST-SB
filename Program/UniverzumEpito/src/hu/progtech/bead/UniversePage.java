@@ -1,5 +1,7 @@
 package hu.progtech.bead;
 
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -33,7 +35,7 @@ public class UniversePage implements BigPage {
 
         createList(listTypes);
 
-        String[] buttonTypes = new String[]{"go back","edit","delete"};
+        String[] buttonTypes = new String[]{"Vissza","szerkesztés","törlés"};
         createFunctionButtons(buttonTypes);
         addListSelectionListeners();
         createColumnField();
@@ -95,6 +97,7 @@ public class UniversePage implements BigPage {
     }
 
     public void createList(String[] types) throws SQLException {
+
         for (int i = 0; i<types.length; i++){
 
             lists.add(new JList(CelestialBodiesCRUD.select(types[i],universe_id).toArray()));
@@ -105,13 +108,12 @@ public class UniversePage implements BigPage {
             lists.get(i).setFont(new Font(null,Font.PLAIN,25));
             lists.get(i).setBorder(new EmptyBorder(0,0, 10, 0));
 
-            addButtons.add(new JButton("Add " + types[i].substring(0,types[i].length()-1)
-                    .replace("xie","xy")));
+            addButtons.add(new JButton());
             addButtons.get(i).setBounds((i+1)*300+60,520,150,50);
             addButtons.get(i).setFocusable(false);
             addButtons.get(i).addActionListener(this);
 
-            listLabels.add(new JLabel(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
+            listLabels.add(new JLabel());
             listLabels.get(i).setBounds(i*300 + 285,10,300,50);
 
             listLabels.get(i).setHorizontalAlignment(SwingConstants.CENTER);
@@ -121,6 +123,12 @@ public class UniversePage implements BigPage {
             frame.add(listLabels.get(i));
             frame.add(addButtons.get(i));
         }
+        addButtons.get(0).setText("Új bolygó");
+        addButtons.get(1).setText("Új csillag");
+        addButtons.get(2).setText("Új galaxis");
+        listLabels.get(0).setText("Bolygók");
+        listLabels.get(1).setText("Csillagok");
+        listLabels.get(2).setText("Galaxisok");
     }
 
     public void createFunctionButtons(String[] types){
@@ -148,20 +156,20 @@ public class UniversePage implements BigPage {
     }
 
     public void updateColumnLabels(){
-            columnLabels.get(0).setText("Name");
-            columnLabels.get(1).setText("Diameter");
-            columnLabels.get(2).setText("Mass");
+            columnLabels.get(0).setText("Név");
+            columnLabels.get(1).setText("Átmérö");
+            columnLabels.get(2).setText("Tömeg");
             if (selectedList == null){
-                columnLabels.get(3).setText("O/B/N");
+                columnLabels.get(3).setText("K/F/Cs");
             }
             else if (selectedList.equals(lists.get(0))){
-                columnLabels.get(3).setText("Orbital Period");
+                columnLabels.get(3).setText("Keringési idő");
             }
             else  if (selectedList.equals(lists.get(1))){
-                columnLabels.get(3).setText("Brightness");
+                columnLabels.get(3).setText("Fényesség");
             }
             else  if (selectedList.equals(lists.get(2))){
-                columnLabels.get(3).setText("Number of stars");
+                columnLabels.get(3).setText("Csillagok száma");
             }
     }
 
@@ -181,7 +189,7 @@ public class UniversePage implements BigPage {
         //ADD
         String[] values = new String[4];
         for (int i = 0; i < 3;i++){
-            if (selectedList != null && e.getSource()== addButtons.get(i)){
+            if (e.getSource()== addButtons.get(i)){
                 index = i;
                     for(int j=0;j<4;j++){
                         if (!columnTextFields.get(j).getText().equals("")) {
@@ -194,8 +202,12 @@ public class UniversePage implements BigPage {
 
                     try {
                         CelestialBodiesCRUD.insert(listTypes[i],universe_id,values);
+                        Logger logger = Logger.getLogger(WelcomePage.class);
+                        logger.info("Sor hozzáadva");
                     } catch (SQLException ex) {
                         ex.printStackTrace();
+                        Logger logger = Logger.getLogger(WelcomePage.class);
+                        logger.info("Adatbázis hiba");
                     }
             }
         }
@@ -216,15 +228,26 @@ public class UniversePage implements BigPage {
                     try {
                         if(i==0) {
                             CelestialBodiesCRUD.update(listTypes[i],universe_id,values,
-                                    CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);}
+                                    CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);
+                            Logger logger = Logger.getLogger(WelcomePage.class);
+                            logger.info("Sor szerkesztve");
+                        }
                         else if(i==1) {
                             CelestialBodiesCRUD.update(listTypes[i],universe_id,values,
-                                    CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id); }
+                                    CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id);
+                            Logger logger = Logger.getLogger(WelcomePage.class);
+                            logger.info("Sor szerkesztve");
+                        }
                         else if(i==2) {
                             CelestialBodiesCRUD.update(listTypes[i],universe_id,values,
-                                    CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).id); }
+                                    CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).id);
+                            Logger logger = Logger.getLogger(WelcomePage.class);
+                            logger.info("Sor szerkesztve");
+                        }
                     } catch (SQLException ex) {
                         ex.printStackTrace();
+                        Logger logger = Logger.getLogger(WelcomePage.class);
+                        logger.info("Adatbázis hiba");
                     }
                 }
                 else if(selectedList==null && selectedList==lists.get(i)){
@@ -243,17 +266,25 @@ public class UniversePage implements BigPage {
                         if(i==0) {
                             CelestialBodiesCRUD.delete(listTypes[i],
                                     CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);
+                            Logger logger = Logger.getLogger(WelcomePage.class);
+                            logger.info("Sor törölve");
                         }
                         else if(i==1) {
                             CelestialBodiesCRUD.delete(listTypes[i],
                                     CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id);
+                            Logger logger = Logger.getLogger(WelcomePage.class);
+                            logger.info("Sor törölve");
                         }
                         else if(i==2) {
                             CelestialBodiesCRUD.delete(listTypes[i],
                                     CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).id);
+                            Logger logger = Logger.getLogger(WelcomePage.class);
+                            logger.info("Sor törölve");
                         }
                     } catch (SQLException ex) {
                         ex.printStackTrace();
+                        Logger logger = Logger.getLogger(WelcomePage.class);
+                        logger.info("Adatbázis hiba");
                     }
                 }
             }

@@ -1,5 +1,6 @@
 package hu.progtech.bead;
 
+import com.mysql.cj.log.Log;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class LoginForm{
@@ -22,8 +24,8 @@ public class LoginForm{
         buttonRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textFieldName.setText(null);
-                passwordFieldPass.setText(null);
+                textFieldName.setText("");
+                passwordFieldPass.setText("");
 
                 RegisterForm.getInstance().registerFrame = new JFrame("Univerzum Készítő - Regisztráció");
                 RegisterForm.getInstance().registerFrame.setContentPane(new RegisterForm().panelRegister);
@@ -41,59 +43,36 @@ public class LoginForm{
         buttonLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = textFieldName.getText();
-                String password = String.valueOf(passwordFieldPass.getPassword());
-                try {
-                    if (IDandPasswords.containsUser(username)!=null){
-                        if (IDandPasswords.containsUser(username).password.equals(password)){
-                            showMessageDialog(null, "Sikeres Bejelentkezés!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
+                if (e.getSource()==buttonLogin){
+                    String username = textFieldName.getText();
+                    String password = String.valueOf(passwordFieldPass.getPassword());
+                    try {
+                        if (IDandPasswords.containsUser(username)!=null){
+                            if (IDandPasswords.containsUser(username).password.equals(password)){
+                                showMessageDialog(null, "Sikeres Bejelentkezés!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
 
-                            //UniversesForm.getInstance().UniverseuserID = IDandPasswords.containsUser(username).userID;
-                            UniversesForm.getInstance().universesFrame = new JFrame("Univerzum Készítő - Univerzumok");
-                            UniversesForm.getInstance().universesFrame.setContentPane(new UniversesForm().panelUniverses);
-                            UniversesForm.getInstance().universesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                            UniversesForm.getInstance().universesFrame.setSize(800, 600);
-                            UniversesForm.getInstance().universesFrame.setLocationRelativeTo(null);
-                            UniversesForm.getInstance().universesFrame.setVisible(true);
-                            LoginForm.getInstance().loginFrame.setVisible(false);
-
-<<<<<<< HEAD
                                 UniversesForm.getInstance().UniverseuserID = IDandPasswords.containsUser(username).userID;
-                                System.out.println(UniversesForm.getInstance().UniverseuserID);
                                 UniversesForm.getInstance().universesFrame = new JFrame("Univerzum Készítő - Univerzumok");
                                 UniversesForm.getInstance().universesFrame.setContentPane(new WelcomePage(UniversesForm.getInstance().UniverseuserID));
-                               // UniversesForm.getInstance().universesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                              //  UniversesForm.getInstance().universesFrame.setSize(800, 600);
-                              //  UniversesForm.getInstance().universesFrame.setLocationRelativeTo(null);
-                              //  UniversesForm.getInstance().universesFrame.setVisible(true);
                                 LoginForm.getInstance().loginFrame.setVisible(false);
                             }
                             else{
                                 labelMessage.setForeground(Color.RED);
                                 labelMessage.setText("Hibás Jelszó!");
+
+                                Logger logger = Logger.getLogger(String.valueOf(LoginForm.class));
+                                logger.info("Hibás jelszó.");
                             }
-=======
-                            Logger logger = Logger.getLogger(LoginForm.class);
-                            logger.info("Sikeres Bejelentkezés");
->>>>>>> main
                         }
                         else{
                             labelMessage.setForeground(Color.RED);
-                            labelMessage.setText("Hibás Jelszó!");
-
-                            Logger logger = Logger.getLogger(LoginForm.class);
-                            logger.info("Hibás jelszó.");
+                            labelMessage.setText("Nincs ilyen nevű felhasználó!");
+                            Logger logger = Logger.getLogger(String.valueOf(LoginForm.class));
+                            logger.info("Nincs ilyen nevű felhasználó!");
                         }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
                     }
-                    else{
-                        labelMessage.setForeground(Color.RED);
-                        labelMessage.setText("Nincs ilyen nevű felhasználó!");
-
-                        Logger logger = Logger.getLogger(LoginForm.class);
-                        logger.info("Nincs ilyen jelszó.");
-                    }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
                 }
             }
         });
@@ -107,3 +86,4 @@ public class LoginForm{
         return LoginFormHolder.INSTANCE;
     }
 }
+

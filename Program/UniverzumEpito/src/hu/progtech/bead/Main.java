@@ -19,6 +19,7 @@ public class Main {
         Logger logger = Logger.getLogger(Main.class);
         logger.info("A program itt kezdődik.");
 
+
         LoginForm.getInstance().loginFrame = new JFrame("Univerzum Készítő - Bejelentkezés");
         LoginForm.getInstance().loginFrame.setContentPane(new LoginForm().panelLogin);
         LoginForm.getInstance().loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

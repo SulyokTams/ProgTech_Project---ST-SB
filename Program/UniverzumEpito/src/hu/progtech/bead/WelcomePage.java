@@ -1,5 +1,7 @@
 package hu.progtech.bead;
 
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -130,7 +132,11 @@ public class WelcomePage extends Container implements BigPage {
                 if (! nameTextField.getText().equals("")){
                     try {
                         UniverseCRUD.insert(userID,nameTextField.getText());
+                        Logger logger = Logger.getLogger(WelcomePage.class);
+                        logger.info("Sor hozzáadva");
                     } catch (SQLException ex) {
+                        Logger logger = Logger.getLogger(WelcomePage.class);
+                        logger.info("Adatbázis hiba");
                         ex.printStackTrace();
                     }
                 }
@@ -142,7 +148,11 @@ public class WelcomePage extends Container implements BigPage {
                 try {
                 UniverseCRUD.update(userID,nameTextField.getText(),
                            UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
+                    Logger logger = Logger.getLogger(WelcomePage.class);
+                    logger.info("Sor szerkesztve");
                 } catch (SQLException ex) {
+                    Logger logger = Logger.getLogger(WelcomePage.class);
+                    logger.info("Adatbázis hiba");
                     ex.printStackTrace();
                 }
             }
@@ -152,7 +162,11 @@ public class WelcomePage extends Container implements BigPage {
             if(universeList.getSelectedIndex()!=-1){
                 try {
                     UniverseCRUD.delete(UniverseCRUD.universes.get(universeList.getSelectedIndex()).id);
+                    Logger logger = Logger.getLogger(WelcomePage.class);
+                    logger.info("Sor törölve");
                 } catch (SQLException ex) {
+                    Logger logger = Logger.getLogger(WelcomePage.class);
+                    logger.info("Adatbázis hiba");
                     ex.printStackTrace();
                 }
             }
