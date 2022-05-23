@@ -37,12 +37,12 @@ A felhasználó képes saját univerzumát kialakítani, amely tartalmaz égíte
 A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valamint összehasonlítani az égitesteket.
 
 ## 2. Projekt Terv
-### 2.1 Projektszerepkörök, felelősségek
+### 2.1. Projektszerepkörök, Felelősségek
 - Scrum Master: A személy aki felelős a projekt minőségéért, az idő jó beosztásáért, és a igényes munkavégzésért.
 - Backend: A program, valamint adatbázis azon részének kialakítása amelyet a felhasználó nem lát.
 - Frontend: A program azon része amellyel a felhasználó interaktivál.
 
-### 2.2. Projektmunkások és felelősségeik
+### 2.2. Projektmunkások és Felelősségeik
 - Sulyok Tamás: Scrum Master, Frontend - Felelős a projekt időbeni készenlétéért, valamint a program Frontend-jért.
 - Sulyok Balázs: Backend - Az adatbázist és a program Backend-jéért felelős.
 
@@ -83,13 +83,26 @@ A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valami
 
 
 ## 3. Üzleti Folyamatok Modellje
-### 3.1 Üzleti szereplők
+### 3.1. Üzleti Szereplők
 
-A felhasználó, aki képes a saját univerzumát kialakítani.
+- Felhasználó: Képes saját univerzumait létrehozni, szerkeszteni, törölni. Azon belül égitesteket, bolygókat, galaxisokat, csillagok létrehozni, szekeszteni és törölni, valamint összehasonlítani őket.
 
-### 3.2 Üzleti folyamatok
+### 3.2. Üzleti Folyamatok
 
-Bejelentkezés: a ’Belépés’ menüpontra kattintva megjelenik a ’Felhasználó név’ és ’Jelszó’ beviteli űrlap. A mezők kitöltése után a ’Belépés’ gombra kattint a felhasználó. Ha az azonosítás sikeres, akkor a felhasználó belépett és megjelenik számára a saját univerzuma. Ha nem sikerül az azonosítás, hibaüzenet jelenik meg.
+- Bejelentkezés: A felhasználó már regisztrált adataival képes tovább lépni a programban az 'Univerzumok' oldalra.
+- Regisztrálás: A felhasználó létrehoz egy új profilt, ami hozzáadodik az adatbázishoz és onnantól kezdve bármikor be tud lépni a programba.
+- Univerzumok: Az alap oldal bejelentkezés után, a felhasználó képes új univerzumok hozzáadni, nevét megváltoztatni, valamint törölni.
+- Égitestek: Egy univerzumban lévő égitestek listáját mutatja, a felhasználó képes égitesteket létrehozni, szerkeszteni, törölni, valamint összehasonlítani.
+
+### 3.3. Üzleti Entitások
+- Bejelentkezés
+- Regisztrálás
+- Univerzum
+- Bolygó
+- Galaxis
+- Csillag
+- Gomb
+- Lista
 
 ## 4. Követelmények
 
