@@ -189,8 +189,41 @@ A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valami
 ### 6.4. Fejlesztő eszközök
 - IntelliJ IDEA Ultimate edition: Egyetemi hallgatóként használata ingyenes, Java applikáció készítésére.
 - XAMPP: ingyene, lokális adatbázis készítése.
-### Keretrendszer
+### 6.5. Keretrendszer
 - A program nem használ semmilyen keretrendszert.
+
+## 7. Absztrakt domain modell
+
+### 7.1. Fogalomszótár
+| Fogalom | Magyarázat |
+| ------- | ---------- |
+| Backend | A kiszolgáló, ahonnan az alkalmazást el lehet érni. |
+| Frontend | Egy réteg ami feladata a rendszerből kijutó adatok prezentálása, illetve a bejövő adatok fogadása. |
+| Bug | Fejlesztési hiba ami által a program nem a várt eredményt hozza. | 
+| Felület | Olyan környezet, ahol megjelenik a leprogramozott, és stílusolt oldal. |
+| Felhasználó | Olyan személy aki használja a programot. |
+| Bejelentkezés | A felhasználók itt tudnak belépni a rendszerbe, egy felhasználónév és egy jelszó segítségével. |
+| Regisztrálás | A felhasználó itt tud létrehozni egy profilt az adatbázisban, amivel bejelentkezhet. |
+| Jelszó | Betűkből, számokból, szimbólumokból álló, a felhasználó átlat választott titkosított szöveg. |
+| Univerzum | Égitesteket tároló adattábla, a felhaszáló sokat képes csinálni belőle. |
+| Égitest | Bolygo, Csillag, Galaxis össz fogalma. |
+| Szerkesztés | A felhasználó az adatbázis elemeit tudja módosítani. |
+
+### 7.2. Kapcsolatok
+| Komponens | Kapcsolatai |
+| ------- | ---------- |
+| Felhasználó | Szerepkör |
+| | Bejelentkezés |
+| | Regisztárlás |
+| | Univerzumok |
+| | Égitestek |
+| | Szerkesztés |
+| Bejelentkezés | Regisztárlás |
+| | Univerzumok |
+| Regisztárlás | Bejelentkezés |
+| Univerzumok | Bejelentkezés |
+| | Égitestek |
+| Égitestek | Univerzumok |
 
 ## 7. Adatbázis Terv
 Galaxis egyedet jellemzi:
