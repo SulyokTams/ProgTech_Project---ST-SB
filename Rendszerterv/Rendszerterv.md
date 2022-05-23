@@ -168,13 +168,13 @@ A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valami
     - Égitestek
 
 ### 5.5. Képernyőtervek
-![Login](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/LoginKépernyőterv.png)
+![Login](https://github.com/SulyokTams/ProgTech_Project-ST_SB/blob/main/Rendszerterv/Képek/LoginKépernyőterv.png)
 
-![Register](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/RegisterKépernyőterv.png)
+![Register](https://github.com/SulyokTams/ProgTech_Project-ST_SB/blob/main/Rendszerterv/Képek/RegisterKépernyőterv.png)
 
-![Univerzumok](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/UniverzumokKépernyőterv.png)
+![Univerzumok](https://github.com/SulyokTams/ProgTech_Project-ST_SB/blob/main/Rendszerterv/Képek/UniverzumokKépernyőterv.png)
 
-![Égitestek](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/ÉgitestekKépernyőterv.png)
+![Égitestek](https://github.com/SulyokTams/ProgTech_Project-ST_SB/blob/main/Rendszerterv/Képek/ÉgitestekKépernyőterv.png)
 
 ## 6. Architekturális Terv
 
