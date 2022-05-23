@@ -176,9 +176,21 @@ A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valami
 
 ![Égitestek](https://github.com/SulyokTams/ProgTech_Project-ST_SB/blob/main/Rendszerterv/Képek/ÉgitestekKépernyőterv.png)
 
-## 6. Architekturális Terv
+## 6. Fizikai környezet
 
-Az adatok tárolása a MySql adatbázis szerveren történik. A felhasználói felület Java ablakos alkalmazás.
+### 6.1. Vásárolt softwarekomponensek és külső rendszerek
+- A szoftware ingyenes, nem szükséges semmit venni hozzá.
+- Nem szükséges semmilyen külső rendszer.
+### 6.2. Hardver és hálózati topológia
+- Windows operációs rendszerrel futó számítógép.
+- Van tűzfal a hálózaton, minden portot engedélyez.
+### 6.3. Fizikai alrendszerek
+- Nincsen
+### 6.4. Fejlesztő eszközök
+- IntelliJ IDEA Ultimate edition: Egyetemi hallgatóként használata ingyenes, Java applikáció készítésére.
+- XAMPP: ingyene, lokális adatbázis készítése.
+### Keretrendszer
+- A program nem használ semmilyen keretrendszert.
 
 ## 7. Adatbázis Terv
 Galaxis egyedet jellemzi:
