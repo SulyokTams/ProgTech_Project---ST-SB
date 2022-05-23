@@ -24,7 +24,7 @@ public class LoginForm{
                 textFieldName.setText("");
                 passwordFieldPass.setText("");
 
-                RegisterForm.getInstance().registerFrame = new JFrame("Univerzum készítő - Regisztráció");
+                RegisterForm.getInstance().registerFrame = new JFrame("Univerzum Készítő - Regisztráció");
                 RegisterForm.getInstance().registerFrame.setContentPane(new RegisterForm().panelRegister);
                 RegisterForm.getInstance().registerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 RegisterForm.getInstance().registerFrame.setSize(500, 500);
