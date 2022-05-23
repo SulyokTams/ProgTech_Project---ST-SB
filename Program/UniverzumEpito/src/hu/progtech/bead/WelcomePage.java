@@ -4,21 +4,18 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
-public class WelcomePage implements ActionListener {
+public class WelcomePage implements BigPage {
     JFrame frame = new JFrame();
 
-    ArrayList<JButton> functionButtons = new ArrayList<JButton>();
+    ArrayList<JButton> functionButtons = new ArrayList<>();
 
     JList universeList;
+    JScrollPane jcp;
     JLabel listLabel = new JLabel("Universe List");
 
     JLabel nameLabel = new JLabel("Name");
@@ -28,11 +25,48 @@ public class WelcomePage implements ActionListener {
     WelcomePage(String userID) throws SQLException {
         this.userID = userID;
 
+        createList();
+
+        createColumnField();
+
+
+
+        String[] buttonTypes = new String[]{"add","edit","delete"};
+        createFunctionButtons(buttonTypes);
+        createFrame();
+    }
+    public void createFunctionButtons(String[] types){
+
+        for (int i = 0; i< types.length;i++){
+            functionButtons.add(new JButton(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
+            functionButtons.get(i).setBounds(25,(i+1)*150,150,50);
+            functionButtons.get(i).setFocusable(false);
+            functionButtons.get(i).addActionListener(this);
+            frame.add(functionButtons.get(i));
+        }
+    }
+
+    @Override
+    public void createFrame() {
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(1200,800);
+        frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    @Override
+    public void createList() throws SQLException {
+        listLabel.setBounds(785,10,400,50);
+        listLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        listLabel.setFont(new Font(null,Font.PLAIN,35));
+
         universeList = new JList(UniverseCRUD.select(userID).toArray());
         universeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         universeList.setFont(new Font(null,Font.PLAIN,35));
         universeList.setBorder(new EmptyBorder(0,0, 10, 0));
-        JScrollPane jcp = new JScrollPane(universeList);
+
+        jcp = new JScrollPane(universeList);
         jcp.setBounds(800,70,370,430);
 
 
@@ -42,7 +76,6 @@ public class WelcomePage implements ActionListener {
                 if (evt.getClickCount() == 1) {
 
                     // Single-click detected
-                    int index = list.locationToIndex(evt.getPoint());
                     nameTextField.setText(UniverseCRUD.universes.get(universeList.getSelectedIndex()).name);
                     nameTextField.setFont(new Font(null,Font.PLAIN,22));
                     nameTextField.setMargin(new Insets(0,5,0,0));
@@ -59,37 +92,18 @@ public class WelcomePage implements ActionListener {
             }
         });
 
-        listLabel.setBounds(785,10,400,50);
-        listLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        listLabel.setFont(new Font(null,Font.PLAIN,35));
+        frame.add(jcp);
+        frame.add(listLabel);
+    }
 
+    @Override
+    public void createColumnField() {
         nameLabel.setBounds(120,600,200,50);
         nameLabel.setFont(new Font(null,Font.PLAIN,25));
         nameTextField.setBounds(120,650,200,50);
 
-
-        String[] buttonTypes = new String[]{"add","edit","delete"};
-        createFunctionButtons(buttonTypes);
-
-        frame.add(jcp);
-        frame.add(listLabel);
         frame.add(nameLabel);
         frame.add(nameTextField);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(1200,800);
-        frame.setLayout(null);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-    public void createFunctionButtons(String[] types){
-
-        for (int i = 0; i< types.length;i++){
-            functionButtons.add(new JButton(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
-            functionButtons.get(i).setBounds(25,(i+1)*150,150,50);
-            functionButtons.get(i).setFocusable(false);
-            functionButtons.get(i).addActionListener(this);
-            frame.add(functionButtons.get(i));
-        }
     }
 
 
@@ -127,7 +141,6 @@ public class WelcomePage implements ActionListener {
                 }
             }
         }
-      //  universeList.removeAll();
         try {
             DefaultListModel dm =  new DefaultListModel();
             dm.addAll(UniverseCRUD.select(userID));
