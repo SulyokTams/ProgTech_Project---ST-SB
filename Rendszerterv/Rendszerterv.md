@@ -225,39 +225,41 @@ A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valami
 | | Égitestek |
 | Égitestek | Univerzumok |
 
-## 7. Adatbázis Terv
-Galaxis egyedet jellemzi:
-- név
-- átmérő
-- tömeg
-- csillagok száma
+## 8. Adatbázis Terv
+- Univerzum egyedet jellemzi
+  - Név
+  - user_id
 
-Bolygó egyedet jellemzi:
-  név
-- átmérő
-- tömeg
-- távolság
-- keringési idő
+- Galaxis egyedet jellemzi:
+  - Név
+  - Átmérő
+  - Tömeg
+  - Csillagok száma
 
-Csillag egyedet jellemzi:
-- név
-- átmérő
-- tömeg
-- fényesség
+- Bolygó egyedet jellemzi:
+  - Név
+  - Átmérő
+  - Tömeg
+  - Távolság
+  - Keringési idő
 
-Fekete lyuk egyedet jellemzi:
-- név
-- átmérő
-- tömeg
-- galaxis
-- távolság
+- Csillag egyedet jellemzi:
+  - Név
+  - Átmérő
+  - Tömeg
+  - Fényesség
+
+- Fekete lyuk egyedet jellemzi:
+  - Név
+  - Átmérő
+  - Tömeg
+  - Galaxis
+  - Távolság
 
 Felhasználó egyedet jellemzi:
-- név
-- csillagok
-- bolygók
-- galaxisok
-- fekete lyukak
+- Név
+- Jelszó
+  
 ## 8. Implementációs terv
 
 
