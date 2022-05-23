@@ -1,6 +1,7 @@
 package hu.progtech.bead;
 
 import com.mysql.cj.log.Log;
+import org.apache.log4j.Logger;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -14,6 +15,9 @@ public class Main {
        // RegisterPage registerPage = new RegisterPage();
        // WelcomePage welcomePage = new WelcomePage("2");
       //  UniversePage universePage = new UniversePage("1");
+
+        Logger logger = Logger.getLogger(Main.class);
+        logger.info("Program Starts here.");
 
         LoginForm.getInstance().loginFrame = new JFrame("Univerzum Készítő - Bejelentkezés");
         LoginForm.getInstance().loginFrame.setContentPane(new LoginForm().panelLogin);
