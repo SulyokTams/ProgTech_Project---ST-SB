@@ -336,4 +336,7 @@ Az eljárás sikeres, ha különböző böngészőkben és különböző android
 
 ## 12. Karbantartási Terv
 
-
+- A szoftver továbbfejlesztése több funkcióval.
+- Több égitestek hozzáadása.
+- Forráskód optimalizálása.
+- Égitestekhez való kép csatolásának megvalósítása.
