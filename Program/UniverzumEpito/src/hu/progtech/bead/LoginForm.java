@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class LoginForm{
     public JPanel panelLogin;
@@ -43,23 +44,23 @@ public class LoginForm{
                     try {
                         if (IDandPasswords.containsUser(username)!=null){
                             if (IDandPasswords.containsUser(username).password.equals(password)){
-                                labelMessage.setForeground(Color.GREEN);
-                                labelMessage.setText("Login successful");
-                                try {
-                                    WelcomePage welcomePage = new WelcomePage(IDandPasswords.containsUser(username).userID);
-                                } catch (SQLException ex) {
-                                    ex.printStackTrace();
-                                }
-
+                                showMessageDialog(null, "Sikeres Bejelentkezés!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
+                                UniversesForm.getInstance().universesFrame = new JFrame("Univerzum Készítő - Regisztráció");
+                                UniversesForm.getInstance().universesFrame.setContentPane(new RegisterForm().panelRegister);
+                                UniversesForm.getInstance().universesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                UniversesForm.getInstance().universesFrame.setSize(500, 500);
+                                UniversesForm.getInstance().universesFrame.setLocationRelativeTo(null);
+                                UniversesForm.getInstance().universesFrame.setVisible(true);
+                                LoginForm.getInstance().loginFrame.setVisible(false);
                             }
                             else{
                                 labelMessage.setForeground(Color.RED);
-                                labelMessage.setText("Wrong password");
+                                labelMessage.setText("Hibás Jelszó!");
                             }
                         }
                         else{
                             labelMessage.setForeground(Color.RED);
-                            labelMessage.setText("Username not found");
+                            labelMessage.setText("Nincs ilyen nevű felhasználó!");
                         }
                     } catch (SQLException ex) {
                         ex.printStackTrace();

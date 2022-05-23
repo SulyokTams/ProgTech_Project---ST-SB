@@ -277,6 +277,5 @@ public class UniversePage implements BigPage {
         } catch (NullPointerException ex){
 
         }
-
     }
 }
