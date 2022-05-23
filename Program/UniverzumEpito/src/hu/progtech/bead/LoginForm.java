@@ -11,10 +11,10 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public class LoginForm{
     public JPanel panelLogin;
-    private JTextField textFieldName;
-    private JPasswordField passwordFieldPass;
-    private JButton buttonLogin;
-    private JButton buttonRegister;
+    public JTextField textFieldName;
+    public JPasswordField passwordFieldPass;
+    public JButton buttonLogin;
+    public JButton buttonRegister;
     public JLabel labelMessage;
     public JFrame loginFrame;
 

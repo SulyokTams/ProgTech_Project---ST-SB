@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class RegisterForm{
-    private JTextField textFieldName;
-    private JPasswordField passwordFieldPass;
-    private JPasswordField passwordFieldPassAgain;
-    private JButton buttonRegister;
-    private JButton buttonVissza;
-    private JLabel labelMessage;
+    public JTextField textFieldName;
+    public JPasswordField passwordFieldPass;
+    public JPasswordField passwordFieldPassAgain;
+    public JButton buttonRegister;
+    public JButton buttonVissza;
+    public JLabel labelMessage;
     public JPanel panelRegister;
     public JFrame registerFrame;
 
@@ -22,9 +22,9 @@ public class RegisterForm{
         buttonVissza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textFieldName.setText("");
-                passwordFieldPass.setText("");
-                passwordFieldPassAgain.setText("");
+                textFieldName.setText(null);
+                passwordFieldPass.setText(null);
+                passwordFieldPassAgain.setText(null);
 
                 LoginForm.getInstance().loginFrame.setVisible(true);
                 RegisterForm.getInstance().registerFrame.setVisible(false);
@@ -58,9 +58,21 @@ public class RegisterForm{
                     return;
                 }
 
+                if (username.length() == 0){
+                    labelMessage.setForeground(Color.RED);
+                    labelMessage.setText("A név nem lehet üres!");
+                    return;
+                }
+
                 if (password.length() < 3){
                     labelMessage.setForeground(Color.RED);
                     labelMessage.setText("A jelszó nem lehet kissebb mint 3!");
+                    return;
+                }
+
+                if (password.length() == 0){
+                    labelMessage.setForeground(Color.RED);
+                    labelMessage.setText("A jelszó nem lehet nem lehet üres!");
                     return;
                 }
 
@@ -68,17 +80,16 @@ public class RegisterForm{
                     labelMessage.setForeground(Color.RED);
                     labelMessage.setText("A jelszavak nem egyeznek meg!");
                 }
-                else{
-                    try {
-                        IDandPasswords.insertUser(username,password);
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
-                    }
 
-                    showMessageDialog(null, "Sikeres Regisztráció!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
-                    RegisterForm.getInstance().registerFrame.setVisible(false);
-                    LoginForm.getInstance().loginFrame.setVisible(true);
+                try {
+                    IDandPasswords.insertUser(username,password);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                 }
+
+                showMessageDialog(null, "Sikeres Regisztráció!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
+                RegisterForm.getInstance().registerFrame.setVisible(false);
+                LoginForm.getInstance().loginFrame.setVisible(true);
             }
         });
     }
