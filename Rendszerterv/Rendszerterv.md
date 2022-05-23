@@ -126,6 +126,56 @@ A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valami
 
 ## 5. Funkcionális Terv
 
+### 5.1. Rendszerszereplők
+- Felhasználó
+
+### 5.2. Rendszerhasználati esetek és lefutásaik
+- Felhasználó
+  - Regisztrálás
+  - Bejelentkezés
+  - Univerzum felvétele, szekesztése, törlése
+  - Égitestek felvétele, szekesztése, törlése, összehasonlítása
+
+### 5.3. Határ osztályok
+- Regisztrálás
+  - Név
+  - Jelszó
+  - Jelszó újra
+  - Regisztrálás gomb
+  - Vissza gomb
+- Bejelentkezés
+  - Név
+  - Jelszó
+  - Bejelentkezés gomb
+  - Regisztrálás gomb
+- Univerzumok
+  - Új létrehozása
+  - Szerkesztése
+  - Törlése
+  - Univerzum lista
+  - Input mező
+- Égitestek
+  - Új Bolygó, Csillag, Galaxis létrehozása
+  - Szerkesztése
+  - Törlése
+  - Égitestek listái
+  - Égitestek összehasonlítása
+
+### 5.4. Menühierarchiák
+- Bejelentkezés
+  - Regisztrálás
+  - Univerzumok
+    - Égitestek
+
+### 5.5. Képernyőtervek
+![Login](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/LoginKépernyőterv.png)
+
+![Register](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/RegisterKépernyőterv.png)
+
+![Univerzumok](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/UniverzumokKépernyőterv.png)
+
+![Égitestek](https://github.com/SulyokTams/ProgTech_Project-ST_SB/tree/main/Rendszerterv/Képek/ÉgitestekKépernyőterv.png)
+
 ## 6. Architekturális Terv
 
 Az adatok tárolása a MySql adatbázis szerveren történik. A felhasználói felület Java ablakos alkalmazás.
