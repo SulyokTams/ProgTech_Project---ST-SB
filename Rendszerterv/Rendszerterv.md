@@ -260,11 +260,50 @@ Felhasználó egyedet jellemzi:
 - Név
 - Jelszó
   
-## 8. Implementációs terv
+## 9. Implementációs terv
 
+### 9.1. Perzisztencia osztályok
+- Adatbázis:
+  - Univerzumok tábla
+  - Galaxisok tábla
+  - Bolygók tábla
+  - Csillagok tábla
+  - Felhasználók tábla
+- XAMPP phpMyAdmin adatbázis tervező
+### 9.2. Üzleti logika osztályai
+- Backend
+  - Java GUI osztályok
+  - Adatbázis kapcsolat
+  - Abstract Factory tervezési minta használata
+  - Observer Tervezési minta használata
+  - Singleton használata
+  - SOLID elvek betartása
+- Frontend
+  - Java GUI könnyű kezelése
+  - Java GUI szépítése
+- Tesztelés és Loggolás
+  - Unit tesztek használata
+  - Főbb funkciók kiíratása text fájlba
+### 9.3. Kliens oldal osztályai
+- Bejelentkezés
+  - Beviteli mezők
+  - Login és Register gombok
+- Regisztrálás
+  - Beviteli mezők
+  - Register és vissza gombok
+- Univerzumok
+  - Univerzumok listája
+  - Szerkesztési gombok
+  - Beviteli mező
+  - Vissza gomb
+- Égitestek
+  - Égitestek listái
+  - Szerkesztési gombok
+  - Beviteli mezők
+  - Vissza gomb
 
-## 9. Teszt Terv
+## 10. Teszt Terv
 
-## 10. Telepítési Terv
+## 11. Telepítési Terv
 
-## 11. Karbantartási Terv
+## 12. Karbantartási Terv
