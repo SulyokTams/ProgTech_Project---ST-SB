@@ -328,6 +328,12 @@ Az eljárás sikeres, ha különböző böngészőkben és különböző android
 
 ## 11. Telepítési Terv
 
-
+- Windows operációs rendszer
+- Java version 11 a program futtatásához
+- Adatbázis elkészítése az sql fájl segítségével
+- A program letölthető a GitHub oldalon
+- A projekt nyílt forráskódú így bárki hozzáférhet és saját használatra felhasználhatja.
 
 ## 12. Karbantartási Terv
+
+
