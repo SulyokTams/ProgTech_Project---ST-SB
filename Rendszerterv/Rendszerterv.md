@@ -37,9 +37,50 @@ A felhasználó képes saját univerzumát kialakítani, amely tartalmaz égíte
 A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valamint összehasonlítani az égitesteket.
 
 ## 2. Projekt Terv
-### 2.1 Projektmunkások
--   Sulyok Tamás
--   Sulyok Balázs
+### 2.1 Projektszerepkörök, felelősségek
+- Scrum Master: A személy aki felelős a projekt minőségéért, az idő jó beosztásáért, és a igényes munkavégzésért.
+- Backend: A program, valamint adatbázis azon részének kialakítása amelyet a felhasználó nem lát.
+- Frontend: A program azon része amellyel a felhasználó interaktivál.
+
+### 2.2. Projektmunkások és felelősségeik
+- Sulyok Tamás: Scrum Master, Frontend - Felelős a projekt időbeni készenlétéért, valamint a program Frontend-jért.
+- Sulyok Balázs: Backend - Az adatbázist és a program Backend-jéért felelős.
+
+### 2.3. Ütemterv:
+| Funkció      | Feladat     | Prioritás | Becslés | Eltelt idő | Hátralévő idő |
+| -----------  | ----------- | --------- | ------- | ---------- | ------------- |
+| Rendszerterv | A projekt részletes leírása | 3 | 5 | 3 | 2 |  
+| Adatbázis    | Adatbázis megtervezése | 2 | 0.5 | 0.5 | 0 |
+| | Adatbázis megvalósítása | 2 | 1 | 1 | 0 |
+| Login Felület | Felület megtervezése | 1 | 0.5 | 0.5 | 0 |
+| | GUI felület megvalósítása | 1 | 1 | 1 | 0 |
+| | Adatok elküldése az adatbázisnak | 1 | 0.5 | 0.5 | 0 |
+| | Felület Frontend szépítése | 1 | 1 | 0 | 1 | 
+| Regisztrációs felület | Felület megtervezése | 1 | 0.5 | 0.5 | 0 |
+| | GUI felület megvalósítása | 1 | 1 | 1 | 0 |
+| | Adatok elküldése az adatbázisnak | 1 | 0.25 | 0.25 | 0 |
+| | Felület Frontend szépítése | 1 | 1 | 0 | 1 |
+| Univerzumok felület | Felület megtervezése | 1 | 0.5 | 0.5 | 0 |
+| | GUI felület megvalósítása | 1 | 1 | 1 | 0 |
+| | Adatok elküldése az adatbázisnak | 1 | 0.25 | 0.25 | 0 |
+| | Felület Frontend szépítése | 1 | 1 | 0 | 1 |
+| Saját univerzum felület | Felület megtervezése | 1 | 0.5 | 0.5 | 0 |
+| | GUI felület megvalósítása | 1 | 1 | 1 | 0 |
+| | Adatok elküldése az adatbázisnak | 1 | 0.25 | 0.25 | 0 |
+| | Felület Frontend szépítése | 1 | 1 | 0 | 1 |
+| Tesztelés | A program tesztelése Unit Tesztekkel | 2 | 3 | 0 | 3 |
+| Loggolás | A program főbb funkcióinak futtatáskori eredményei számontartása | 2 | 2 | 0 | 2 |
+
+
+### 2.4. Mérföldkövek:
+1. GitHub és Trello létrehozása
+2. Rendszerterv megírása
+3. Adatbázis elkészítése
+4. Program GUI kialakítsa
+5. Program Backend megírása
+6. Program tesztelése és loggolása
+7. Program Frontend szépítése
+
 
 ## 3. Üzleti Folyamatok Modellje
 ### 3.1 Üzleti szereplők
