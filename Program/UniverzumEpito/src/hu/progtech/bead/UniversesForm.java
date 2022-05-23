@@ -1,32 +1,35 @@
 package hu.progtech.bead;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class UniversesForm {
-    private JPanel panelUniverses;
+    public JPanel panelUniverses;
     private JList listUniverses;
     private JTextField textFieldUniverseName;
     private JButton buttonDelete;
     private JButton buttonEdit;
     private JButton buttonNew;
     private JButton buttonVissza;
+    private JScrollPane scrollPaneUniverses;
     public JFrame universesFrame;
+    //String UniverseuserID;
 
-    ArrayList<JList> lists = new ArrayList<>();
-    ArrayList<JLabel> listLabels = new ArrayList<>();
-    ArrayList<JScrollPane> scrollPanes = new ArrayList<>();
-    ArrayList<JButton> addButtons = new ArrayList<>();
-
-    String universe_id;
-    String userID;
-
-    String[] celestialBodyTypes = new String[]{"planets","stars","galaxies"};
 
     UniversesForm(){
+        //this.UniverseuserID = userID;
 
 
-
+        buttonVissza.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textFieldUniverseName.setText("");
+                LoginForm.getInstance().loginFrame.setVisible(true);
+                UniversesForm.getInstance().universesFrame.setVisible(false);
+            }
+        });
     }
 
     private static class UniversesFormHolder {

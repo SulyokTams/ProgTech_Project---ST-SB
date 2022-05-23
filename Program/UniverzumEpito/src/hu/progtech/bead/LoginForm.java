@@ -45,10 +45,12 @@ public class LoginForm{
                         if (IDandPasswords.containsUser(username)!=null){
                             if (IDandPasswords.containsUser(username).password.equals(password)){
                                 showMessageDialog(null, "Sikeres Bejelentkezés!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
-                                UniversesForm.getInstance().universesFrame = new JFrame("Univerzum Készítő - Regisztráció");
-                                UniversesForm.getInstance().universesFrame.setContentPane(new RegisterForm().panelRegister);
+
+                                //UniversesForm.getInstance().UniverseuserID = IDandPasswords.containsUser(username).userID;
+                                UniversesForm.getInstance().universesFrame = new JFrame("Univerzum Készítő - Univerzumok");
+                                UniversesForm.getInstance().universesFrame.setContentPane(new UniversesForm().panelUniverses);
                                 UniversesForm.getInstance().universesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                                UniversesForm.getInstance().universesFrame.setSize(500, 500);
+                                UniversesForm.getInstance().universesFrame.setSize(800, 600);
                                 UniversesForm.getInstance().universesFrame.setLocationRelativeTo(null);
                                 UniversesForm.getInstance().universesFrame.setVisible(true);
                                 LoginForm.getInstance().loginFrame.setVisible(false);
