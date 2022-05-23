@@ -14,7 +14,18 @@ public class RegisterForm implements ActionListener {
     private JButton buttonRegister;
     private JButton buttonVissza;
     private JLabel labelMessage;
+    public JPanel panelRegister;
+    public JFrame registerFrame;
 
+    RegisterForm(){}
+
+    private static class RegisterFormHolder {
+        private static final RegisterForm INSTANCE = new RegisterForm();
+    }
+
+    public static RegisterForm getInstance() {
+        return RegisterForm.RegisterFormHolder.INSTANCE;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

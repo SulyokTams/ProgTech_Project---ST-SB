@@ -1,5 +1,7 @@
 package hu.progtech.bead;
 
+import com.mysql.cj.log.Log;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +15,17 @@ public class LoginForm implements ActionListener{
     private JButton buttonLogin;
     private JButton buttonRegister;
     public JLabel labelMessage;
+    public JFrame loginFrame;
+
+    LoginForm(){}
+
+    private static class LoginFormHolder {
+        private static final LoginForm INSTANCE = new LoginForm();
+    }
+
+    public static LoginForm getInstance() {
+        return LoginFormHolder.INSTANCE;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -23,6 +36,13 @@ public class LoginForm implements ActionListener{
                 textFieldName.setText("");
                 passwordFieldPass.setText("");
 
+                RegisterForm.getInstance().registerFrame = new JFrame("Univerzum készítő - Regisztráció");
+                RegisterForm.getInstance().registerFrame.setContentPane(new RegisterForm().panelRegister);
+                RegisterForm.getInstance().registerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                RegisterForm.getInstance().registerFrame.setSize(500, 500);
+                RegisterForm.getInstance().registerFrame.setLocationRelativeTo(null);
+                RegisterForm.getInstance().registerFrame.setVisible(true);
+                loginFrame.setVisible(false);
             }
         });
 
