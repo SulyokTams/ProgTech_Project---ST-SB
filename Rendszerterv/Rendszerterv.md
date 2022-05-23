@@ -31,7 +31,10 @@
 ----------
 
 ## 1. Rendszer Célja
-Adatbázis alapú Univerzum építő alkalmazás, ahol a felhasználó saját univerzumát képes kialakítani, égitestekkel, bolygókkal, csillagokkal, naprendszerekkel. Továbbá eme égitestek felvétele, szerkesztése, törlése, összehasonlítása.
+A cél egy olyan program készítése, amely képes égítesteket részleteiben leírni és tárolni egy adatbázisban. A programot főleg kezdő csillagászoknak tervezzük, akik megfigyeléseiket, felfedezéseiket könnyen és egyszerűen feltudják jegyezni és összehasonlítani másokéval.
+
+A felhasználó képes saját univerzumát kialakítani, amely tartalmaz égítesteket, mint galaxisok, bolygók, csillagok, naprendszerek. 
+A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valamint összehasonlítani az égitesteket.
 
 ## 2. Projekt Terv
 ### 2.1 Projektmunkások
