@@ -26,7 +26,7 @@ public class IDandPasswords {
         System.out.println(logininfo.toString());
 
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
         return logininfo;
     }
     protected static User containsUser(String username) throws SQLException {
@@ -52,7 +52,7 @@ public class IDandPasswords {
         logininfo = selectLogininfo();
         System.out.println(statement.executeUpdate());
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
     }
 
 }

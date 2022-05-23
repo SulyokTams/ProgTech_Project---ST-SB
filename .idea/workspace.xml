@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c0f6c7b-5c84-4dfa-910f-bbc88f64391d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgTech_Project-ST_SB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProgTech_Project-ST_SB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/logs.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/Log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/Log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/LoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/CelestialBodiesCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/CelestialBodiesCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/IDandPasswords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/MySQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/MySQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniverseCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniverseCRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/UniversePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Program/UniverzumEpito/src/hu/progtech/bead/WelcomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
       <recent name="hu.progtech.bead" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hu.progtech.bead.Main" />
       <module name="ProgTech_Project-ST_SB" />
@@ -89,9 +87,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginFormTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProgTech_Project-ST_SB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hu.progtech.bead.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hu.progtech.bead" />
+      <option name="MAIN_CLASS_NAME" value="hu.progtech.bead.LoginFormTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.LoginFormTest" />
       </list>
     </recent_temporary>
   </component>
@@ -113,7 +127,7 @@
       <workItem from="1653208155601" duration="1448000" />
       <workItem from="1653245925498" duration="11858000" />
       <workItem from="1653263202364" duration="2793000" />
-      <workItem from="1653282898689" duration="6897000" />
+      <workItem from="1653282898689" duration="8925000" />
     </task>
     <servers />
   </component>

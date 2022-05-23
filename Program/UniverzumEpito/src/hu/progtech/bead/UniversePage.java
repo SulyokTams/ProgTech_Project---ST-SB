@@ -89,6 +89,7 @@ public class UniversePage implements BigPage {
         }
     }
     public void createFrame(){
+        frame.setTitle("Univerzum Készítő");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(1200,800);
         frame.setLayout(null);

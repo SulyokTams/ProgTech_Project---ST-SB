@@ -27,7 +27,7 @@ public class UniverseCRUD {
             universes.add(new Universe(universe_id,name,user_id));
         }
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
         return data;
     }
     public static void insert(String userID,String value) throws SQLException {
@@ -39,7 +39,7 @@ public class UniverseCRUD {
         System.out.println(statement.executeUpdate());
 
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
     }
 
     public static void update(String userID,String value,String id) throws SQLException {
@@ -52,7 +52,7 @@ public class UniverseCRUD {
         System.out.println(statement.executeUpdate());
 
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
     }
 
     public static void delete(String id) throws SQLException {
@@ -63,6 +63,6 @@ public class UniverseCRUD {
         System.out.println(statement.executeUpdate());
 
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
     }
 }

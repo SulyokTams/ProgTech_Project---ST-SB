@@ -54,7 +54,7 @@ public class CelestialBodiesCRUD {
             }
         }
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
         return data;
     }
     public static void insert(String type,String universe_id,String[] values) throws SQLException {
@@ -69,7 +69,7 @@ public class CelestialBodiesCRUD {
         System.out.println(statement.executeUpdate());
 
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
     }
     public static void update(String type,String universe_id,String[] values,String id) throws SQLException {
         mySQLConnection = new MySQLConnection();
@@ -96,7 +96,7 @@ public class CelestialBodiesCRUD {
         System.out.println(statement.executeUpdate());
 
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
     }
     public static void delete(String type, String id) throws SQLException {
         mySQLConnection = new MySQLConnection();
@@ -106,6 +106,6 @@ public class CelestialBodiesCRUD {
         System.out.println(statement.executeUpdate());
 
         statement.close();
-        mySQLConnection.connection.close();
+        mySQLConnection.close();
     }
 }
