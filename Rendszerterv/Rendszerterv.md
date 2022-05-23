@@ -106,10 +106,23 @@ A felhasználó az adatbázisba képes felvenni, szerkeszteni, törölni, valami
 
 ## 4. Követelmények
 
-Egy olyan program amelyben a felhasználó létre tudja hozni saját univerzumát.
-Nem kell bejelentkezni a program használatához, de csak bejelentkezéssel lehet égitestet felvenni, szerkeszteni, törölni. 
-A felhasználó képet tölthet fel az égitesthez.
-Több felhasználó tudja használni az adatbázist egy időben, módosításokról értesítést kap a többi felhasználó.
+### 4.1. Funkcionális követelmények:
+- Rendszerterv elkészítése
+- Adatok tárolása adatbázisban
+- Java Swing GUI alkalmazás
+- Autentikációs rendszer alkalmazása
+- Felhasználó mindenhez hozzáfér
+- Egyszerű és gyors kezelés
+- Bővíthető
+
+### 4.2. Nem funkcionális követelmények:
+- Az adattárolás ne legyen túl komoly.
+- Nem egy részletes égitest elemző és tároló alkalmazás, hanem egy egyszerű, gyorsan használható tároló.
+- Felhasználónak ne kelljen semmilyen komolyabb tudással rendelkeznie a használatához.
+
+### 4.3. Törvényi előírások, szabványok: 
+- GNU General Public License v3.0
+- Bárki, bárhogyan felhasználhatja ezt a programot nyíltforrású célokra.
 
 ## 5. Funkcionális Terv
 
