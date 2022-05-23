@@ -1,12 +1,17 @@
 package hu.progtech.bead;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UniversesForm {
     public JPanel panelUniverses;
+    String UniverseuserID;
     private JList listUniverses;
     private JTextField textFieldUniverseName;
     private JButton buttonDelete;
@@ -15,12 +20,19 @@ public class UniversesForm {
     private JButton buttonVissza;
     private JScrollPane scrollPaneUniverses;
     public JFrame universesFrame;
-    //String UniverseuserID;
 
 
-    UniversesForm(){
-        //this.UniverseuserID = userID;
 
+    UniversesForm(String universeuserID) throws SQLException {
+        UniverseuserID = universeuserID;
+        DefaultListModel dm = new DefaultListModel();
+        dm.addAll(UniverseCRUD.select(UniverseuserID));
+        listUniverses.setModel(dm);
+        System.out.println(Arrays.toString(UniverseCRUD.select(UniverseuserID).toArray()));
+        listUniverses.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+
+      //  listUniverses.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         buttonVissza.addActionListener(new ActionListener() {
             @Override
@@ -32,8 +44,18 @@ public class UniversesForm {
         });
     }
 
+
+
     private static class UniversesFormHolder {
-        private static final UniversesForm INSTANCE = new UniversesForm();
+        private static  UniversesForm INSTANCE = null;
+
+        static {
+            try {
+                INSTANCE = new UniversesForm(null);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static UniversesForm getInstance() {

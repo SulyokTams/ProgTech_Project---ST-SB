@@ -6,7 +6,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ public class UniversePage implements BigPage {
     ArrayList<JLabel> columnLabels = new ArrayList<>();
     ArrayList<JTextField> columnTextFields = new ArrayList<>();
 
-    String[] celestialBodyTypes = new String[]{"planets","stars","galaxies"};
+    String[] listTypes = new String[]{"planets","stars","galaxies"};
 
     JList selectedList;
     ArrayList<JList> lists = new ArrayList<>();
@@ -32,7 +31,7 @@ public class UniversePage implements BigPage {
         this.universe_id = universe_id;
         this.userID = userID;
 
-        createList();
+        createList(listTypes);
 
         String[] buttonTypes = new String[]{"go back","edit","delete"};
         createFunctionButtons(buttonTypes);
@@ -95,10 +94,10 @@ public class UniversePage implements BigPage {
         frame.setVisible(true);
     }
 
-    public void createList() throws SQLException {
-        for (int i = 0; i<celestialBodyTypes.length; i++){
+    public void createList(String[] types) throws SQLException {
+        for (int i = 0; i<types.length; i++){
 
-            lists.add(new JList(CelestialBodiesCRUD.select(celestialBodyTypes[i],universe_id).toArray()));
+            lists.add(new JList(CelestialBodiesCRUD.select(types[i],universe_id).toArray()));
 
             scrollPanes.add(new JScrollPane(lists.get(i)));
             scrollPanes.get(i).setBounds((i+1)*300,70,270,430);
@@ -106,13 +105,13 @@ public class UniversePage implements BigPage {
             lists.get(i).setFont(new Font(null,Font.PLAIN,25));
             lists.get(i).setBorder(new EmptyBorder(0,0, 10, 0));
 
-            addButtons.add(new JButton("Add " + celestialBodyTypes[i].substring(0,celestialBodyTypes[i].length()-1)
+            addButtons.add(new JButton("Add " + types[i].substring(0,types[i].length()-1)
                     .replace("xie","xy")));
             addButtons.get(i).setBounds((i+1)*300+60,520,150,50);
             addButtons.get(i).setFocusable(false);
             addButtons.get(i).addActionListener(this);
 
-            listLabels.add(new JLabel(celestialBodyTypes[i].substring(0, 1).toUpperCase() + celestialBodyTypes[i].substring(1)));
+            listLabels.add(new JLabel(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
             listLabels.get(i).setBounds(i*300 + 285,10,300,50);
 
             listLabels.get(i).setHorizontalAlignment(SwingConstants.CENTER);
@@ -194,7 +193,7 @@ public class UniversePage implements BigPage {
                     }
 
                     try {
-                        CelestialBodiesCRUD.insert(celestialBodyTypes[i],universe_id,values);
+                        CelestialBodiesCRUD.insert(listTypes[i],universe_id,values);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
@@ -216,13 +215,13 @@ public class UniversePage implements BigPage {
                     }
                     try {
                         if(i==0) {
-                            CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
+                            CelestialBodiesCRUD.update(listTypes[i],universe_id,values,
                                     CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);}
                         else if(i==1) {
-                            CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
+                            CelestialBodiesCRUD.update(listTypes[i],universe_id,values,
                                     CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id); }
                         else if(i==2) {
-                            CelestialBodiesCRUD.update(celestialBodyTypes[i],universe_id,values,
+                            CelestialBodiesCRUD.update(listTypes[i],universe_id,values,
                                     CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).id); }
                     } catch (SQLException ex) {
                         ex.printStackTrace();
@@ -242,15 +241,15 @@ public class UniversePage implements BigPage {
                     index = i;
                     try {
                         if(i==0) {
-                            CelestialBodiesCRUD.delete(celestialBodyTypes[i],
+                            CelestialBodiesCRUD.delete(listTypes[i],
                                     CelestialBodiesCRUD.planets.get(selectedList.getSelectedIndex()).id);
                         }
                         else if(i==1) {
-                            CelestialBodiesCRUD.delete(celestialBodyTypes[i],
+                            CelestialBodiesCRUD.delete(listTypes[i],
                                     CelestialBodiesCRUD.stars.get(selectedList.getSelectedIndex()).id);
                         }
                         else if(i==2) {
-                            CelestialBodiesCRUD.delete(celestialBodyTypes[i],
+                            CelestialBodiesCRUD.delete(listTypes[i],
                                     CelestialBodiesCRUD.galaxies.get(selectedList.getSelectedIndex()).id);
                         }
                     } catch (SQLException ex) {
