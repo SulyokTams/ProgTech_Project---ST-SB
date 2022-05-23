@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UniversePage implements BigPage {
-    JFrame frame = new JFrame();
+    JFrame frame = new JFrame("Univerzum Építő - Égitestek");
 
     String universe_id;
     String userID;
@@ -180,6 +180,7 @@ public class UniversePage implements BigPage {
         if (e.getSource() == functionButtons.get(0)){
             try {
                 WelcomePage welcomePage = new WelcomePage(userID);
+                frame.setVisible(false);
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }

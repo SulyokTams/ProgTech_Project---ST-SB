@@ -4,3 +4,5 @@ Program/UniverzumEpito/ProgTech_Project-ST_SB.iml
 Program/UniverzumEpito/.idea/workspace.xml
 
 Program/UniverzumEpito/src/Log4j.properties
+Program/UniverzumEpito/src/Log4j.properties
+Program/UniverzumEpito/logs.log
