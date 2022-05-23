@@ -1,4 +1,4 @@
-/**package hu.progtech.bead;
+/*package hu.progtech.bead;
 
 import javax.swing.*;
 import java.awt.*;
@@ -93,4 +93,4 @@ public class LoginPage implements ActionListener {
             }
         }
     }
-}**/
+}*/

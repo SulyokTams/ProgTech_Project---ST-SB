@@ -12,7 +12,7 @@ public class LoginForm implements ActionListener{
     private JPasswordField passwordFieldPass;
     private JButton buttonLogin;
     private JButton buttonRegister;
-    private JLabel labelMessage;
+    public JLabel labelMessage;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -22,7 +22,7 @@ public class LoginForm implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 textFieldName.setText("");
                 passwordFieldPass.setText("");
-                RegisterPage registerPage = new RegisterPage();
+
             }
         });
 
