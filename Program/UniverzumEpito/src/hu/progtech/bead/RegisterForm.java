@@ -1,5 +1,7 @@
 package hu.progtech.bead;
 
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,6 +30,9 @@ public class RegisterForm{
 
                 LoginForm.getInstance().loginFrame.setVisible(true);
                 RegisterForm.getInstance().registerFrame.setVisible(false);
+
+                Logger logger = Logger.getLogger(RegisterForm.class);
+                logger.info("Vissza a Bejelentkezési képernyőre gomb.");
             }
         });
 
@@ -90,6 +95,9 @@ public class RegisterForm{
                 showMessageDialog(null, "Sikeres Regisztráció!", "Siker!", JOptionPane.INFORMATION_MESSAGE);
                 RegisterForm.getInstance().registerFrame.setVisible(false);
                 LoginForm.getInstance().loginFrame.setVisible(true);
+
+                Logger logger = Logger.getLogger(RegisterForm.class);
+                logger.info("Regisztráció Sikeres.");
             }
         });
     }

@@ -1,6 +1,6 @@
 package hu.progtech.bead;
 
-import com.mysql.cj.log.Log;
+import org.apache.log4j.Logger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,6 +32,9 @@ public class LoginForm{
                 RegisterForm.getInstance().registerFrame.setLocationRelativeTo(null);
                 RegisterForm.getInstance().registerFrame.setVisible(true);
                 LoginForm.getInstance().loginFrame.setVisible(false);
+
+                Logger logger = Logger.getLogger(LoginForm.class);
+                logger.info("Regisztrációs gomb megnyomva.");
             }
         });
 
@@ -53,15 +56,24 @@ public class LoginForm{
                             UniversesForm.getInstance().universesFrame.setLocationRelativeTo(null);
                             UniversesForm.getInstance().universesFrame.setVisible(true);
                             LoginForm.getInstance().loginFrame.setVisible(false);
+
+                            Logger logger = Logger.getLogger(LoginForm.class);
+                            logger.info("Sikeres Bejelentkezés");
                         }
                         else{
                             labelMessage.setForeground(Color.RED);
                             labelMessage.setText("Hibás Jelszó!");
+
+                            Logger logger = Logger.getLogger(LoginForm.class);
+                            logger.info("Hibás jelszó.");
                         }
                     }
                     else{
                         labelMessage.setForeground(Color.RED);
                         labelMessage.setText("Nincs ilyen nevű felhasználó!");
+
+                        Logger logger = Logger.getLogger(LoginForm.class);
+                        logger.info("Nincs ilyen jelszó.");
                     }
                 } catch (SQLException ex) {
                     ex.printStackTrace();

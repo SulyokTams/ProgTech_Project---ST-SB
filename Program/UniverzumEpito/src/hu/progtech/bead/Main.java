@@ -17,7 +17,7 @@ public class Main {
       //  UniversePage universePage = new UniversePage("1");
 
         Logger logger = Logger.getLogger(Main.class);
-        logger.info("Program Starts here.");
+        logger.info("A program itt kezdődik.");
 
         LoginForm.getInstance().loginFrame = new JFrame("Univerzum Készítő - Bejelentkezés");
         LoginForm.getInstance().loginFrame.setContentPane(new LoginForm().panelLogin);
