@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UniversePage implements ActionListener {
+public class UniversePage implements BigPage {
     JFrame frame = new JFrame();
 
     String universe_id;
@@ -32,12 +32,12 @@ public class UniversePage implements ActionListener {
         this.universe_id = universe_id;
         this.userID = userID;
 
-        createLists(celestialBodyTypes);
+        createList();
 
         String[] buttonTypes = new String[]{"go back","edit","delete"};
         createFunctionButtons(buttonTypes);
         addListSelectionListeners();
-        createColumnFields();
+        createColumnField();
         updateColumnLabels();
         createFrame();
 
@@ -95,10 +95,10 @@ public class UniversePage implements ActionListener {
         frame.setVisible(true);
     }
 
-    public void createLists(String[] types) throws SQLException {
-        for (int i = 0; i<types.length; i++){
+    public void createList() throws SQLException {
+        for (int i = 0; i<celestialBodyTypes.length; i++){
 
-            lists.add(new JList(CelestialBodiesCRUD.select(types[i],universe_id).toArray()));
+            lists.add(new JList(CelestialBodiesCRUD.select(celestialBodyTypes[i],universe_id).toArray()));
 
             scrollPanes.add(new JScrollPane(lists.get(i)));
             scrollPanes.get(i).setBounds((i+1)*300,70,270,430);
@@ -106,13 +106,13 @@ public class UniversePage implements ActionListener {
             lists.get(i).setFont(new Font(null,Font.PLAIN,25));
             lists.get(i).setBorder(new EmptyBorder(0,0, 10, 0));
 
-            addButtons.add(new JButton("Add " + types[i].substring(0,types[i].length()-1)
+            addButtons.add(new JButton("Add " + celestialBodyTypes[i].substring(0,celestialBodyTypes[i].length()-1)
                     .replace("xie","xy")));
             addButtons.get(i).setBounds((i+1)*300+60,520,150,50);
             addButtons.get(i).setFocusable(false);
             addButtons.get(i).addActionListener(this);
 
-            listLabels.add(new JLabel(types[i].substring(0, 1).toUpperCase() + types[i].substring(1)));
+            listLabels.add(new JLabel(celestialBodyTypes[i].substring(0, 1).toUpperCase() + celestialBodyTypes[i].substring(1)));
             listLabels.get(i).setBounds(i*300 + 285,10,300,50);
 
             listLabels.get(i).setHorizontalAlignment(SwingConstants.CENTER);
@@ -134,7 +134,7 @@ public class UniversePage implements ActionListener {
         }
     }
 
-    public void createColumnFields(){
+    public void createColumnField(){
         for (int i = 0; i< 4;i++){
             columnLabels.add(new JLabel());
             columnLabels.get(i).setBounds(i*250 + 120,600,200,50);
